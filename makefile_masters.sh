@@ -1,0 +1,25 @@
+xelatex sample_masters
+bibtex sample_masters  
+makeindex sample_masters.nlo -s nomencl.ist -o sample_masters.nls 
+xelatex sample_masters  
+xelatex sample_masters 
+rm *.aux
+rm *.bak
+rm *.log
+rm *.bbl
+rm *.dvi
+rm *.blg
+rm *.thm
+rm *.toc
+rm *.out
+rm *.lof
+rm *.lol
+rm *.lot
+rm *.nav
+rm *.snm
+rm *.ilg
+rm *.loa
+rm *.nlo
+rm *.nls
+rm *.fdb_latexmk
+rm *.synctex.gz
