@@ -31,18 +31,22 @@
 \newif\iffigurelist\figurelistfalse
 \newif\iftablelist\tablelistfalse
 \newif\ifnomlist\nomlistfalse
+
 \InputIfFileExists{seuthesix.cfg}
-{\typeout{[seuthesix]: Load seuthesix.cfg successfully!}}%
-   {\typeout{[seuthesix]: Load seuthesix.cfg failed!}}%
+{\typeout{[seuthesix]: Load seuthesix.cfg successfully!}}
+{\typeout{[seuthesix]: Load seuthesix.cfg failed!}}
+
 \DeclareOption{nocolorlinks}{\nocolorlinkstrue}
 \DeclareOption{algorithmlist}{\algorithmlisttrue}
 \DeclareOption{phd}{\phdtrue\mastersfalse\engineeringfalse\renewcommand\@degreelevel{博士}}
 \DeclareOption{masters}{\masterstrue\engineeringfalse\phdfalse\renewcommand\@degreelevel{硕士}}
 \DeclareOption{engineering}{%
 \engineeringtrue\masterstrue\phdfalse\renewcommand\@degreelevel{工程硕士}}
+
 \DeclareOption{figurelist}{\figurelisttrue}
 \DeclareOption{tablelist}{\tablelisttrue}
 \DeclareOption{nomlist}{\nomlisttrue}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexrep}}
 \ProcessOptions
 \LoadClass[twoside,a4paper,zihao=-4,UTF8,openright]{ctexrep}
@@ -62,7 +66,7 @@
 \newcommand{\liuhao}{\fontsize{7.5bp}{9bp}\selectfont}
 \newcommand{\xiaoliuhao}{\fontsize{6.5bp}{7.5bp}\selectfont}
 \newcommand{\qihao}{\fontsize{5.5bp}{6.5bp}\selectfont}
-%\setCJKmainfont{SimSun}
+
 \ctexset{%
 chapter/format=\centering,
 chapter/nameformat=\large\heiti,
@@ -78,10 +82,10 @@ subsubsection/format=\sihao\mdseries\raggedright,
 listfigurename={插图目录},
 listtablename={表格目录}
 }
+
 \RequirePackage[font=small]{caption}
 \captionsetup[table]{labelsep=space}
 \captionsetup[figure]{labelsep=space}
-%\RequirePackage{mathptmx}
 \setmainfont[Mapping=tex-text]{Times New Roman}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -126,67 +130,75 @@ listtablename={表格目录}
  urlcolor=magenta
 }
 \AtEndDocument{\backcover}
-\newcommand{\backcover}{
-\clearpage\thispagestyle{empty}\cleardoublepage\mbox{ }
-\clearpage\thispagestyle{empty} %backcover always at even page.
-\begin{picture}(0,0)
- \put(-1,-22){ %
-\includegraphics[width=\textwidth]{figures/back-cover.png}}
-\end{picture}
+\newcommand{\backcover} {
+	\clearpage
+	\thispagestyle{empty}\cleardoublepage\mbox{ }
+	\clearpage
+	\thispagestyle{empty}
+	\begin{picture}(0,0)
+		\put(-1,-22){ %
+		\includegraphics[width=\textwidth]{figures/back-cover.png}}
+	\end{picture}
 }
 
-\RequirePackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry}
+\RequirePackage[top=1.2in,bottom=1in,left=2cm,right=2cm,a4paper]{geometry}
 \RequirePackage{fancyhdr}
-\fancypagestyle{seustyle}{%
-\fancyhf{}
-\fancyhead[CO]{\xiaowuhao\leftmark}
-\fancyhead[CE]{\xiaowuhao\universityname{}\@thesistype}
-\fancyfoot[CO,CE]{\thepage}
+\fancypagestyle{seustyle} {
+	\fancyhf{}
+	\fancyhead[CO]{\xiaowuhao\leftmark}
+	\fancyhead[CE]{\xiaowuhao\universityname{}\@thesistype}
+	\fancyfoot[CO,CE]{\thepage}
 }
 \pagestyle{seustyle}
 
-\fancypagestyle{nom}{%
-\fancyhf{} 
-\fancyhead[CO]{\xiaowuhao\nomname}
-\fancyhead[CE]{\xiaowuhao\universityname{}\@thesistype}
-\fancyfoot[CO,CE]{\thepage}
+\fancypagestyle{nom} {
+	\fancyhf{} 
+	\fancyhead[CO]{\xiaowuhao\nomname}
+	\fancyhead[CE]{\xiaowuhao\universityname{}\@thesistype}
+	\fancyfoot[CO,CE]{\thepage}
 }
 
 \renewcommand{\headrulewidth}{0.4pt}
 \RequirePackage{eso-pic}
-\renewcommand{\author}[2]{
- \def\@author{#1}
- \newcommand{\@authoreng}{#2}
+
+\renewcommand{\author}[2] {
+	\def\@author{#1}
+	\newcommand{\@authoreng}{#2}
 }
+
 \newcommand{\@titleeng}{}
 \newcommand{\@subtitleeng}{}
+
 \renewcommand{\title}[4]{
- \def\@title{#1}
- \newcommand{\@subtitle}{#2}
- \renewcommand{\@titleeng}{#3}
- \renewcommand{\@subtitleeng}{#4}
+	\def\@title{#1}
+	\newcommand{\@subtitle}{#2}
+	\renewcommand{\@titleeng}{#3}
+	\renewcommand{\@subtitleeng}{#4}
 }
+
 \newcommand{\@advisorname}{}
-\newcommand{\@advisortitle}{}
 \newcommand{\@advisornameeng}{}
 \newcommand{\@advisortitleeng}{}
-\newcommand{\advisor}[4]{
- \renewcommand{\@advisorname}{#1}
- \renewcommand{\@advisortitle}{#2}
- \renewcommand{\@advisornameeng}{#3}
- \renewcommand{\@advisortitleeng}{#4}
+
+\newcommand{\advisor}[3]{
+	\renewcommand{\@advisorname}{#1}
+	\renewcommand{\@advisornameeng}{#2}
+	\renewcommand{\@advisortitleeng}{#3}
 }
+
 \newcommand{\@coadvisorname}{}
 \newcommand{\@coadvisortitle}{}
 \newcommand{\@coadvisornameeng}{}
 \newcommand{\@coadvisortitleeng}{}
+
 \newcommand{\coadvisor}[4]{
- \coadvisortrue
- \renewcommand{\@coadvisorname}{#1}
- \renewcommand{\@coadvisortitle}{#2}
- \renewcommand{\@coadvisornameeng}{#3}
- \renewcommand{\@coadvisortitleeng}{#4}
+	\coadvisortrue
+	\renewcommand{\@coadvisorname}{#1}
+	\renewcommand{\@coadvisortitle}{#2}
+	\renewcommand{\@coadvisornameeng}{#3}
+	\renewcommand{\@coadvisortitleeng}{#4}
 }
+
 \newcommand{\@categorynumber}{}
 \newcommand{\categorynumber}[1]{\renewcommand{\@categorynumber}{#1}}
 \newcommand{\@secretlevel}{}
@@ -195,28 +207,30 @@ listtablename={表格目录}
 \newcommand{\UDC}[1]{\renewcommand{\@UDC}{#1}}
 \newcommand{\@studentid}{}
 \newcommand{\studentid}[1]{\renewcommand{\@studentid}{#1}}
-\newcommand\degreetype[2]{\renewcommand\@degreetype{#1}%
+\newcommand\degreetype[2]{\renewcommand\@degreetype{#1}
 \renewcommand\@degreetypeen{#2}}
 \newcommand{\@majorlen}{8em}
 \newcommand{\@major}{}
+
 \newcommand{\major}[2][8em]{
- \renewcommand{\@majorlen}{#1}
- \renewcommand{\@major}{#2}
+	\renewcommand{\@majorlen}{#1}
+	\renewcommand{\@major}{#2}
 }
 \newcommand{\@department}{}
 \newcommand{\@departmenteng}{}
+
 \newcommand{\department}[2]{
- \renewcommand{\@department}{#1}
- \renewcommand{\@departmenteng}{#2}
+	\renewcommand{\@department}{#1}
+	\renewcommand{\@departmenteng}{#2}
 }
 \newcommand{\@submajor}{}
 \newcommand{\submajor}[1]{
- \renewcommand{\@submajor}{#1}
+	\renewcommand{\@submajor}{#1}
 }
 \newcommand{\@defenddate}{}
 \newcommand{\defenddate}[1]{\renewcommand{\@defenddate}{#1}}
 \newcommand{\authorizeorganization}[1]{
- \renewcommand{\@authorizeorganization}{#1}
+	\renewcommand{\@authorizeorganization}{#1}
 }
 
 \newcommand{\@authorizedate}{}
@@ -225,27 +239,33 @@ listtablename={表格目录}
 \newcommand{\committeechair}[1]{\renewcommand{\@committeechair}{#1}}
 \newcommand{\@reviewerA}{}
 \newcommand{\@reviewerB}{}
+
 \newcommand{\reviewer}[2]{
- \renewcommand{\@reviewerA}{#1}
- \renewcommand{\@reviewerB}{#2}
+	\renewcommand{\@reviewerA}{#1}
+	\renewcommand{\@reviewerB}{#2}
 }
 \newcommand{\CoverTopOption}[3][s]{
- \makebox[1.5cm][#1]{\xiaowuhao #2}:{
-   \underline{\makebox[1.5cm][c]{\xiaowuhao #3}}}
+	\makebox[1.5cm][#1]{\xiaowuhao #2}:{
+		\underline{
+			\makebox[1.5cm][c]{\xiaowuhao #3}
+		}
+	}
 }
-\newcommand{\CoverBottomOption}[3][4.5cm]{
- \makebox[7cm][s]{
-   {\songti\xiaosihao#2}
-   \underline{\makebox[#1][c]{\heiti\xiaosihao#3}}
- }
+\newcommand{\CoverBottomOption}[3][4.5cm] {
+	\makebox[7cm][s]{
+		{\songti\xiaosihao#2}
+		\underline{
+			\makebox[#1][c]{\heiti\xiaosihao#3}
+		}
+	}
 }
 \newif\ifthanks\thanksfalse
 \newcommand\@seuthesisthanks{ }
 \newcommand\seuthesisthanks[1]{\renewcommand\@seuthesisthanks{#1}\thankstrue}
 \newcommand\@thesisthanks{\ifthanks\thispagestyle{thanksstyle}\fi}
-\fancypagestyle{thanksstyle}{%
+\fancypagestyle{thanksstyle}{
 \fancyhf{}
-\fancyfoot[L]{\setlength{\baselineskip}{0pt}%
+\fancyfoot[L]{\setlength{\baselineskip}{0pt}
 \rule[-2.5pt]{6cm}{.4pt}\\ \small\@seuthesisthanks}
 \renewcommand\headrulewidth{0pt}
 }
@@ -270,7 +290,7 @@ listtablename={表格目录}
 	
 	\begin{picture}(0,0)
 		\setlength{\unitlength}{1cm}
-		\put(19.5,-9.5){
+		\put(19.5,-8.5){
 			\includegraphics[width=19cm]{figures/front-cover.jpg}
 		}
 	\end{picture}
@@ -278,7 +298,7 @@ listtablename={表格目录}
  	%% The basic information of the thesis
  	
  	\begin{picture}(0,0)
-		\put(19.5,0) {
+		\put(19.5,1) {
 			\renewcommand{\arraystretch}{1.0}
 				\begin{tabular}{l}
      				\CoverTopOption{\schoolcodepre}{\schoolcode} \\
@@ -303,7 +323,7 @@ listtablename={表格目录}
 	\else \ifmasters
 	
 		\begin{picture}(0,0)
-			\put(24.2,-8.3){
+			\put(24.2,-7.5){
 				\includegraphics[scale=0.32]{figures/master.png}
 			}
 		\end{picture}
@@ -329,7 +349,7 @@ listtablename={表格目录}
 	%% Southeast University badge
 	
 	\begin{picture}(0,0)
-		\put(35,0){
+		\put(35,2){
 			\includegraphics[width=2cm]{figures/seu-color-logo.png}
 		}
 	\end{picture}
@@ -337,7 +357,7 @@ listtablename={表格目录}
 	%% Back cover
 	
 	\begin{picture}(0,0)
-		\put(-1,-22){
+		\put(-1,-21){
 			\includegraphics[width=\textwidth]{figures/back-cover.png}
 		}
 	\end{picture}
@@ -345,24 +365,24 @@ listtablename={表格目录}
 	%% Thesis spine
 	
 	\begin{picture}(0,0)
-		\put(18,-11){
+		\put(18,-8){
 			\parbox[c]{\ccwd}{
 				\bfseries
 				\setlength{\baselineskip}{0pt}
 				\@title\\
 				\rule{0pt}{\ccwd}\\
 				\@subtitle\\
-				\vspace*{2cm}
+				\vspace*{4cm}
 				\@author\\
-				\vspace*{2cm}
+				\vspace*{4cm}
 				\universityname
 			}
 		}
 	\end{picture}
-	
+		
 	%% Thesis title
 	
-	\vspace*{8cm}
+	\vspace*{6cm}
 	\hspace*{21cm}
 	\begin{minipage}{16cm}
 		\begin{center}
@@ -372,7 +392,7 @@ listtablename={表格目录}
 		\end{center}
 	\end{minipage}
 	
-	%% Thesis author and tutor
+	%% Thesis author and advisor
 	
 	\vspace*{1.5cm}
 	\hspace*{21cm}
@@ -383,15 +403,15 @@ listtablename={表格目录}
 			\begin{tabular}{cr}
 				\makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
 				\underline{\makebox[6cm][s]{
-					\hspace*{1cm}
+					\hspace*{1.7cm}
 					\makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
 					\makebox[2cm][r]{}}
 				} \\
 				\makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
 				\underline{\makebox[6cm][s]{
-					\hspace*{1cm}
+					\hspace*{1.7cm}
            			\makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-           			\makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}
+           			\makebox[2cm][r]{}}
            		} \\
        			&
        			\ifcoadvisor
@@ -427,9 +447,12 @@ listtablename={表格目录}
    		\end{center}
 	\end{minipage}
 	
+	%% Date
+	
 	\vfill
 	\hspace*{20.5cm}
 	{\songti\sihao\centerline{\today} \par}
+	
 	\eject
 	\pdfpagewidth=210mm
 	\pdfpageheight=297mm
@@ -443,13 +466,17 @@ listtablename={表格目录}
 
 \newcommand{\makechinesecover} {
 
+	%% Basic settings
+	
 	\hypersetup {
 		pdfauthor={\@author},
    		pdftitle={\universityname{}\@thesistype},
    		pdfsubject={\@title \@subtitle},
    		pdfcreator={xetex}
  	}
-
+ 	
+ 	%% The basic information of the thesis
+ 	
 	\thispagestyle{empty}
 	\AddToShipoutPictureFG* {
 		\setlength{\unitlength}{1cm}
@@ -464,7 +491,9 @@ listtablename={表格目录}
 			\end{tabular}
 		}
 	}
-
+	
+	%% University title and the picture of grand auditorium
+	
 	\AddToShipoutPictureBG*{
 		\setlength{\unitlength}{1cm}
 		\put(0,23) {
@@ -475,13 +504,16 @@ listtablename={表格目录}
 		}
 	}
 	
+	%% Thesis name
+	
 	\ifengineering
 	
 	\AddToShipoutPictureBG*{
 		\setlength{\unitlength}{1cm}
 		\put(0,18){
 			\parbox{\paperwidth}{
-				\centering\includegraphics[scale=0.65]{figures/engineering.png}
+				\centering
+				\includegraphics[scale=0.65]{figures/engineering.png}
 			}
 		}
 	}
@@ -490,9 +522,10 @@ listtablename={表格目录}
 	
 	\AddToShipoutPictureBG*{
 		\setlength{\unitlength}{1cm}
-		\put(0,18){
+		\put(0,17.3){
 			\parbox{\paperwidth}{
-				\centering\includegraphics[scale=1.1]{figures/master-hwzs.pdf}
+				\centering
+				\includegraphics[scale=0.35]{figures/master.png}
 			}
 		}
 	}
@@ -503,7 +536,8 @@ listtablename={表格目录}
    		\setlength{\unitlength}{1cm}
 		\put(0,18){
 			\parbox{\paperwidth} {
-				\centering\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
+				\centering
+				\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
 			}
 		}
 	}
@@ -518,6 +552,8 @@ listtablename={表格目录}
    	\fi
    	\fi
    	
+   	%% Southeast University badge
+   	
 	\AddToShipoutPictureBG*{
 		\setlength{\unitlength}{1cm}
 		\put(17,27) {
@@ -527,14 +563,18 @@ listtablename={表格目录}
 		}
 	}
 	
-	\vspace*{8cm}
+	%% Thesis title
 	
+	\vspace*{10cm}
 	\begin{center}
 		\linespread{1.25}
 		\yihao\heiti\@title\\
 		\yihao\heiti\@subtitle
 	\end{center}
-
+	
+	%% Thesis author and advisor
+	
+	\vspace*{0.3cm}
 	\begin{center}
 		\setlength{\tabcolsep}{0pt}
 		\renewcommand{\arraystretch}{2.0}
@@ -542,7 +582,7 @@ listtablename={表格目录}
 			\makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
 			\underline{
 				\makebox[6cm][s] {
-					\hspace*{1cm}
+					\hspace*{1.7cm}
 					\makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
 					\makebox[2cm][r]{}
 				}
@@ -550,9 +590,9 @@ listtablename={表格目录}
 			\makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
 			\underline {
 				\makebox[6cm][s] {
-					\hspace*{1cm}
+					\hspace*{1.7cm}
 					\makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-					\makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}
+					\makebox[2cm][r]{}
 				}
 			}
 			\\
@@ -569,7 +609,9 @@ listtablename={表格目录}
 			\fi \\
 		\end{tabular}
 	\end{center}
-
+	
+	%% Degree application and defense information
+	
 	\begin{center}
 		\setlength{\tabcolsep}{10pt}
 		\renewcommand{\arraystretch}{2.0}
@@ -585,31 +627,49 @@ listtablename={表格目录}
 			& \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
 		\end{tabular}
 	\end{center}
-
+	
+	%% Date
+	
 	\vfill
 	\setcounter{page}{1} {
 		\songti\sihao\centerline{\today} \par
 	}
-
-	\clearpage\thispagestyle{empty}\cleardoublepage%
+	
+	%% Black page
+	
+	\clearpage
 	\thispagestyle{empty}
+	\cleardoublepage
+	\thispagestyle{empty}
+	
+	%% -------------------------------- %%
+	%%             Inner page           %%
+	%% -------------------------------- %%
+	
+	%% University title
 	
 	\begin{center}
 		\xiaochuhao
 		\includegraphics[height=0.63in]{figures/seu-text-logo}
+		
 		\ifmasters
-		\includegraphics{figures/master-hwzs}
+		\includegraphics[scale=0.35]{figures/master.png}
 		\else
 		\includegraphics{figures/doctor-hwzs}
 		\fi
-
-		\vspace{31.5pt}
+		
+		%% Thesis title
+		
+		\vspace{40pt}
 		\yihao\heiti\@title\@thesisthanks\\
 		\yihao\heiti\@subtitle
-		\vspace{42pt}
-
+		
+		%% Author and advisor
+		
+		\vspace{120pt}
 		{
 			\setlength{\tabcolsep}{0pt}
+			\renewcommand{\arraystretch}{1.5}
 			\begin{tabular}{cc}
 				\makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称: } &
 				\underline{
@@ -617,18 +677,16 @@ listtablename={表格目录}
 						\xiaoerhao\songti\textbf{\@major} 
 					}
 				} \\
-				\\
 				\makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre:  } &
 				\underline {
 					\makebox[6cm][s] {
 						\xiaoerhao\songti\textbf{\@author}
 					}
 				} \\
-				\\
 				\makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre:  } &
 				\underline {
 					\makebox[6cm][s] {
-						\xiaoerhao\songti\textbf{\@advisorname\quad\@advisortitle}
+						\xiaoerhao\songti\textbf{\@advisorname}
 					}
 				}
 				\\
@@ -650,53 +708,81 @@ listtablename={表格目录}
 %%    Generate English cover     %%
 %% ----------------------------- %%
 
-\newcommand{\makeenglishcover}{%
-\clearpage\thispagestyle{empty}\cleardoublepage\thispagestyle{empty}
- \begin{center}
-   ~\\
-     {\fontsize{24pt}{28pt}\selectfont
-       \MakeUppercase{\@titleeng}\\
-       \MakeUppercase{\@subtitleeng}
-       \par
-     }
+\newcommand{\makeenglishcover} {
+	
+	%% Black page
+	
+	\clearpage
+	\thispagestyle{empty}
+	\cleardoublepage
+	\thispagestyle{empty}
+	
+	\begin{center}
+	
+		%% English title and subtitle
+	
+		{
+			\fontsize{24pt}{28pt}\selectfont
+			\MakeUppercase{\@titleeng}\\
+			\MakeUppercase{\@subtitleeng}
+			\par
+		}
+		
+		%% Declaration
+		
+		\vspace{2cm}
+		{
+			\fontsize{16pt}{24pt}
+			\selectfont
+			{
+				A
+				\ifmasters
+				Thesis
+				\else
+				Dissertation
+				\fi
+				submitted to
+			}\\
+			{\universitynameeng}\\
+			{For the Academic Degree of \@degreetypeen}\\
+			
+			%% Author
+			
+			{\vspace{0.5in}}
+			{BY}\\
+			{\@authoreng}\\
+			
+			%% Advisor
+			
+			{\vspace{0.5in}}
+			{Supervised by:}\\
+			{\@advisortitleeng\  \@advisornameeng}\\
+			\ifcoadvisor
+			{and}\\
+			{\@coadvisortitleeng\  \@coadvisornameeng}\\
+			\else
+			\fi
+			
+			%% School and University
+			
+			{\vfill}
+			{\@departmenteng}\\
+			{\universitynameeng}\\
+			{\todayeng}
+			\par
+		}
+	\end{center}
+}
 
-     \vspace{2cm}%
-     {\fontsize{16pt}{24pt}\selectfont
-       {A
-       \ifmasters
-         Thesis
-         \else
-         Dissertation
-         \fi
-       submitted to}\\
-       {\universitynameeng}\\
-       {For the Academic Degree of \@degreetypeen}\\
-       {\vspace{0.5in}}%
-       {BY}\\
-       {\@authoreng}\\
-       {\vspace{0.5in}}%
-       {Supervised by:}\\
-       {\@advisortitleeng\  \@advisornameeng}\\
-       \ifcoadvisor
-       {and}\\
-       {\@coadvisortitleeng\  \@coadvisornameeng}\\
-       \else
-       \fi
-       {\vfill}
-       {\@departmenteng}\\
-       {\universitynameeng}\\
-       {\todayeng}
-       \par
-     }%
-   \end{center}%
+%% ----------------------------- %%
+%%         Make cover            %%
+%% ----------------------------- %%
 
- }
-
- \newcommand\makecover{%
- \makechinesecover
- \makeenglishcover
- \seudeclare
- }
+\newcommand\makecover{
+	\makechinesecover
+	\makeenglishcover
+	\seudeclare
+}
 
 \renewenvironment{abstract}[1]
 {
@@ -808,4 +894,3 @@ chapter/titleformat=\large\heiti
  \textsc{Thesis}}
 }
 \endinput
-%% End of file `seuthesix.cls'.
