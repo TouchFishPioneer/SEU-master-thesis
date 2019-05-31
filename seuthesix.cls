@@ -135,7 +135,7 @@ listtablename={表格目录}
 \end{picture}
 }
 
-\RequirePackage[top=1.2in,bottom=1in,left=2cm,right=2cm,a4paper]{geometry}
+\RequirePackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry}
 \RequirePackage{fancyhdr}
 \fancypagestyle{seustyle}{%
 \fancyhf{}
@@ -249,286 +249,406 @@ listtablename={表格目录}
 \rule[-2.5pt]{6cm}{.4pt}\\ \small\@seuthesisthanks}
 \renewcommand\headrulewidth{0pt}
 }
-\newcommand\makebigcover{%generating a3 front cover
-\pdfpagewidth=420mm
-\pdfpageheight=297mm
-\setlength{\paperheight}{297mm}
-\setlength{\paperwidth}{420mm}
-\thispagestyle{empty}
- \setlength{\unitlength}{1cm}
- \noindent
-\begin{picture}(0,0)
-\setlength{\unitlength}{1cm}\put(19.5,-8){%
-\includegraphics[width=19cm]{figures/front-cover.jpg}}%
-\end{picture}
- \begin{picture}(0,0)
-\put(19.5,0){
-\renewcommand{\arraystretch}{1.0}
-   \begin{tabular}{l}
-     \CoverTopOption{\schoolcodepre}{\schoolcode} \\
-     \CoverTopOption{\categorynumberpre}{\@categorynumber} \\
-     \CoverTopOption{\secretlevelpre}{\@secretlevel}\\
-     \CoverTopOption{U D C}{\@UDC} \\
-     \CoverTopOption{\studentidpre}{\@studentid}
-   \end{tabular}
-   }
-\end{picture}
- \ifengineering
-\begin{picture}(0,0)
- \put(23.2,-7.5){ %
-\includegraphics[scale=0.65]{figures/engineering.png}}
-\end{picture}
-   \else \ifmasters
-\begin{picture}(0,0)
- \put(24.5,-7.5){ %
-\includegraphics[scale=1.1]{figures/master-hwzs.pdf}}
-\end{picture}
+
+%% ----------------------------- %%
+%%      Generate A3 cover        %%
+%% ----------------------------- %%
+
+\newcommand\makebigcover {
+
+	%% Basic settings
+	
+	\pdfpagewidth=420mm
+	\pdfpageheight=297mm
+	\setlength{\paperheight}{297mm}
+	\setlength{\paperwidth}{420mm}
+	\thispagestyle{empty}
+	\setlength{\unitlength}{1cm}
+	\noindent
+	
+	%% University title and the picture of grand auditorium
+	
+	\begin{picture}(0,0)
+		\setlength{\unitlength}{1cm}
+		\put(19.5,-9.5){
+			\includegraphics[width=19cm]{figures/front-cover.jpg}
+		}
+	\end{picture}
+ 	
+ 	%% The basic information of the thesis
+ 	
+ 	\begin{picture}(0,0)
+		\put(19.5,0) {
+			\renewcommand{\arraystretch}{1.0}
+				\begin{tabular}{l}
+     				\CoverTopOption{\schoolcodepre}{\schoolcode} \\
+     				\CoverTopOption{\categorynumberpre}{\@categorynumber} \\
+     				\CoverTopOption{\secretlevelpre}{\@secretlevel}\\
+     				\CoverTopOption{U D C}{\@UDC} \\
+     				\CoverTopOption{\studentidpre}{\@studentid}
+   				\end{tabular}
+		}
+	\end{picture}
+	
+	%% Thesis name
+	
+	\ifengineering
+	
+		\begin{picture}(0,0)
+			\put(23.2,-8){
+				\includegraphics[scale=0.65]{figures/engineering.png}
+			}
+		\end{picture}
+	
+	\else \ifmasters
+	
+		\begin{picture}(0,0)
+			\put(24.2,-8.3){
+				\includegraphics[scale=0.32]{figures/master.png}
+			}
+		\end{picture}
+	
+	\else \ifphd
+   
+		\begin{picture}(0,0)
+			\put(24.5,-8){
+				\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
+			}
+		\end{picture}
+	
+	\else
+	
+		\ClassError{seuthesix}{invalid degree type option.}
+		{Check your class option of degree type to be one of the following: %
+		masters, engineering, phd.}
+	
+	\fi
+	\fi
+	\fi
+	
+	%% Southeast University badge
+	
+	\begin{picture}(0,0)
+		\put(35,0){
+			\includegraphics[width=2cm]{figures/seu-color-logo.png}
+		}
+	\end{picture}
+	
+	%% Back cover
+	
+	\begin{picture}(0,0)
+		\put(-1,-22){
+			\includegraphics[width=\textwidth]{figures/back-cover.png}
+		}
+	\end{picture}
+	
+	%% Thesis spine
+	
+	\begin{picture}(0,0)
+		\put(18,-11){
+			\parbox[c]{\ccwd}{
+				\bfseries
+				\setlength{\baselineskip}{0pt}
+				\@title\\
+				\rule{0pt}{\ccwd}\\
+				\@subtitle\\
+				\vspace*{2cm}
+				\@author\\
+				\vspace*{2cm}
+				\universityname
+			}
+		}
+	\end{picture}
+	
+	%% Thesis title
+	
+	\vspace*{8cm}
+	\hspace*{21cm}
+	\begin{minipage}{16cm}
+		\begin{center}
+			\linespread{1.25}
+			\yihao\heiti\@title\\
+			\yihao\heiti\@subtitle
+		\end{center}
+	\end{minipage}
+	
+	%% Thesis author and tutor
+	
+	\vspace*{1.5cm}
+	\hspace*{21cm}
+	\begin{minipage}{16cm}
+		\begin{center}
+    		\setlength{\tabcolsep}{0pt}
+			\renewcommand{\arraystretch}{2.0}
+			\begin{tabular}{cr}
+				\makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
+				\underline{\makebox[6cm][s]{
+					\hspace*{1cm}
+					\makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
+					\makebox[2cm][r]{}}
+				} \\
+				\makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
+				\underline{\makebox[6cm][s]{
+					\hspace*{1cm}
+           			\makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
+           			\makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}
+           		} \\
+       			&
+       			\ifcoadvisor
+       			\underline{\makebox[6cm][s]{
+           			\hspace*{1cm}
+           			\makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
+           			\makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}}
+           		}
+           		\else
+       			\fi \\
+     		\end{tabular}
+		\end{center}
+	\end{minipage}
+	
+	%% Degree application and defense information
+	
+	\hspace*{21cm}
+	\begin{minipage}{16cm}
+		\begin{center}
+			\setlength{\tabcolsep}{10pt}
+			\renewcommand{\arraystretch}{2.0}
+			\begin{tabular}{ll}
+				\CoverBottomOption{\appdegreepre}{\@degreetype} &
+				\CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
+       			\CoverBottomOption{\majorpre}{\@major} &
+       			\CoverBottomOption{\defenddatepre}{\@defenddate}\\
+       			\CoverBottomOption{\submajorpre}{\@submajor} &
+       			\CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
+       			\CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
+       			\CoverBottomOption{\reviewerpre}{\@reviewerA}\\
+       			& \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
+     		\end{tabular}
+   		\end{center}
+	\end{minipage}
+	
+	\vfill
+	\hspace*{20.5cm}
+	{\songti\sihao\centerline{\today} \par}
+	\eject
+	\pdfpagewidth=210mm
+	\pdfpageheight=297mm
+	\setlength{\paperheight}{297mm}
+	\setlength{\paperwidth}{210mm}
+}
+
+%% ----------------------------- %%
+%%    Generate Chinese cover     %%
+%% ----------------------------- %%
+
+\newcommand{\makechinesecover} {
+
+	\hypersetup {
+		pdfauthor={\@author},
+   		pdftitle={\universityname{}\@thesistype},
+   		pdfsubject={\@title \@subtitle},
+   		pdfcreator={xetex}
+ 	}
+
+	\thispagestyle{empty}
+	\AddToShipoutPictureFG* {
+		\setlength{\unitlength}{1cm}
+		\put(1,26) {
+			\renewcommand{\arraystretch}{1.0}
+			\begin{tabular}{l}
+				\CoverTopOption{\schoolcodepre}{\schoolcode} \\
+				\CoverTopOption{\categorynumberpre}{\@categorynumber} \\
+				\CoverTopOption{\secretlevelpre}{\@secretlevel}\\
+				\CoverTopOption{U D C}{\@UDC} \\
+				\CoverTopOption{\studentidpre}{\@studentid}
+			\end{tabular}
+		}
+	}
+
+	\AddToShipoutPictureBG*{
+		\setlength{\unitlength}{1cm}
+		\put(0,23) {
+			\parbox{\paperwidth} {
+				\centering
+				\includegraphics[width=\paperwidth]{figures/front-cover.jpg}
+			}
+		}
+	}
+	
+	\ifengineering
+	
+	\AddToShipoutPictureBG*{
+		\setlength{\unitlength}{1cm}
+		\put(0,18){
+			\parbox{\paperwidth}{
+				\centering\includegraphics[scale=0.65]{figures/engineering.png}
+			}
+		}
+	}
+	
+	\else \ifmasters
+	
+	\AddToShipoutPictureBG*{
+		\setlength{\unitlength}{1cm}
+		\put(0,18){
+			\parbox{\paperwidth}{
+				\centering\includegraphics[scale=1.1]{figures/master-hwzs.pdf}
+			}
+		}
+	}
+	
    \else \ifphd
-\begin{picture}(0,0)
- \put(24.5,-7.5){ %
-\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}}
-\end{picture}
-   \else
-   \ClassError{seuthesix}{invalid degree type option.}%
-   {Check your class option of degree type to be one of the following:%
-   masters, engineering, phd.}
-   \fi
-   \fi
-   \fi
-   \begin{picture}(0,0)
- \put(35,0){ %
-\includegraphics[width=2cm]{figures/seu-color-logo.png}}
-\end{picture}
-\begin{picture}(0,0)
- \put(-1,-22){ %
-\includegraphics[width=\textwidth]{figures/back-cover.png}}
-\end{picture}
-\begin{picture}(0,0)
-\put(18,-11){%
-\parbox[c]{\ccwd}{%
-\bfseries%
-\setlength{\baselineskip}{0pt}
-\@title\\
-\rule{0pt}{\ccwd}\\
-\@subtitle\\
-\vspace*{2cm}
-\@author\\
-\vspace*{2cm}
-\universityname
+   
+	\AddToShipoutPictureBG*{
+   		\setlength{\unitlength}{1cm}
+		\put(0,18){
+			\parbox{\paperwidth} {
+				\centering\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
+			}
+		}
+	}
+	
+	\else
+	
+	\ClassError{seuthesix}{invalid degree type option.}
+   	{Check your class option of degree type to be one of the following:
+   	masters, engineering, phd.}
+   	
+   	\fi
+   	\fi
+   	\fi
+   	
+	\AddToShipoutPictureBG*{
+		\setlength{\unitlength}{1cm}
+		\put(17,27) {
+			\parbox{\paperwidth} {
+				\includegraphics[width=2cm]{figures/seu-color-logo.png}
+			}
+		}
+	}
+	
+	\vspace*{8cm}
+	
+	\begin{center}
+		\linespread{1.25}
+		\yihao\heiti\@title\\
+		\yihao\heiti\@subtitle
+	\end{center}
+
+	\begin{center}
+		\setlength{\tabcolsep}{0pt}
+		\renewcommand{\arraystretch}{2.0}
+		\begin{tabular}{cr}
+			\makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
+			\underline{
+				\makebox[6cm][s] {
+					\hspace*{1cm}
+					\makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
+					\makebox[2cm][r]{}
+				}
+			} \\
+			\makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
+			\underline {
+				\makebox[6cm][s] {
+					\hspace*{1cm}
+					\makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
+					\makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}
+				}
+			}
+			\\
+			&
+			\ifcoadvisor
+			\underline{
+				\makebox[6cm][s] {
+					\hspace*{1cm}
+					\makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
+					\makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}
+				}
+			}
+			\else
+			\fi \\
+		\end{tabular}
+	\end{center}
+
+	\begin{center}
+		\setlength{\tabcolsep}{10pt}
+		\renewcommand{\arraystretch}{2.0}
+		\begin{tabular}{ll}
+			\CoverBottomOption{\appdegreepre}{\@degreetype} &
+			\CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
+			\CoverBottomOption{\majorpre}{\@major} &
+			\CoverBottomOption{\defenddatepre}{\@defenddate}\\
+			\CoverBottomOption{\submajorpre}{\@submajor} &
+			\CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
+			\CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
+			\CoverBottomOption{\reviewerpre}{\@reviewerA}\\
+			& \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
+		\end{tabular}
+	\end{center}
+
+	\vfill
+	\setcounter{page}{1} {
+		\songti\sihao\centerline{\today} \par
+	}
+
+	\clearpage\thispagestyle{empty}\cleardoublepage%
+	\thispagestyle{empty}
+	
+	\begin{center}
+		\xiaochuhao
+		\includegraphics[height=0.63in]{figures/seu-text-logo}
+		\ifmasters
+		\includegraphics{figures/master-hwzs}
+		\else
+		\includegraphics{figures/doctor-hwzs}
+		\fi
+
+		\vspace{31.5pt}
+		\yihao\heiti\@title\@thesisthanks\\
+		\yihao\heiti\@subtitle
+		\vspace{42pt}
+
+		{
+			\setlength{\tabcolsep}{0pt}
+			\begin{tabular}{cc}
+				\makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称: } &
+				\underline{
+					\makebox[6cm][s] {
+						\xiaoerhao\songti\textbf{\@major} 
+					}
+				} \\
+				\\
+				\makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre:  } &
+				\underline {
+					\makebox[6cm][s] {
+						\xiaoerhao\songti\textbf{\@author}
+					}
+				} \\
+				\\
+				\makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre:  } &
+				\underline {
+					\makebox[6cm][s] {
+						\xiaoerhao\songti\textbf{\@advisorname\quad\@advisortitle}
+					}
+				}
+				\\
+				&
+				\ifcoadvisor
+				\underline{
+					\makebox[6cm][s] {
+						\xiaoerhao\songti\textbf{\@coadvisorname\quad\@coadvisortitle}
+					}
+				}
+				\else
+				\fi
+			\end{tabular}
+		}
+	\end{center}
 }
-}
-\end{picture}
 
-\vspace*{8cm}
-
-\hspace*{20.5cm}
-\begin{minipage}{16cm}
-   \begin{center}
-     \linespread{1.25}
-     \yihao\heiti\@title\\
-     \yihao\heiti\@subtitle
-   \end{center}
-\end{minipage}
-
-\hspace*{20.5cm}
-\begin{minipage}{16cm}
-    \begin{center}
-    \setlength{\tabcolsep}{0pt}
-    \renewcommand{\arraystretch}{2.0}
-     \begin{tabular}{cr}
-       \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
-           \makebox[2cm][r]{}}} \\
-       \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-           \makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}}
-       \\
-       &
-       \ifcoadvisor
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
-           \makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}}}
-       \else
-       \fi \\
-     \end{tabular}
-   \end{center}
-  \end{minipage}
-
-    \hspace*{20.5cm}
-   \begin{minipage}{16cm}
-       \begin{center}
-   \setlength{\tabcolsep}{10pt}
-    \renewcommand{\arraystretch}{2.0}
-     \begin{tabular}{ll}
-       \CoverBottomOption{\appdegreepre}{\@degreetype} &
-       \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-       \CoverBottomOption{\majorpre}{\@major} &
-       \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-       \CoverBottomOption{\submajorpre}{\@submajor} &
-       \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
-       \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
-       \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
-       & \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
-     \end{tabular}
-   \end{center}
-   \end{minipage}
-
-       \vfill
-
-       \hspace*{20.5cm}
-{\songti\sihao\centerline{\today} \par}
-\eject
-\pdfpagewidth=210mm
-\pdfpageheight=297mm
-\setlength{\paperheight}{297mm}
-\setlength{\paperwidth}{210mm}
-}
-
-\newcommand{\makechinesecover}{
- \hypersetup{
-   pdfauthor={\@author},
-   pdftitle={\universityname{}\@thesistype},
-   pdfsubject={\@title \@subtitle},
-   pdfcreator={xetex}
- }
-
-\thispagestyle{empty}
-\AddToShipoutPictureFG*{\setlength{\unitlength}{1cm}\put(1,26){%
-\renewcommand{\arraystretch}{1.0}
-   \begin{tabular}{l}
-     \CoverTopOption{\schoolcodepre}{\schoolcode} \\
-     \CoverTopOption{\categorynumberpre}{\@categorynumber} \\
-     \CoverTopOption{\secretlevelpre}{\@secretlevel}\\
-     \CoverTopOption{U D C}{\@UDC} \\
-     \CoverTopOption{\studentidpre}{\@studentid}
-   \end{tabular}
-}
-}
-
-\AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,23){%
-\parbox{\paperwidth}{\centering\includegraphics[width=\paperwidth]{figures/front-cover.jpg}}}}%
-
-   \ifengineering
-\AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
-\parbox{\paperwidth}{\centering\includegraphics[scale=0.65]{figures/engineering.png}}}}%
-   \else \ifmasters
-\AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
-\parbox{\paperwidth}{\centering\includegraphics[scale=1.1]{figures/master-hwzs.pdf}}}}%
-   \else \ifphd
-   \AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(0,18){ %
-\parbox{\paperwidth}{\centering\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}}}}%
-   \else
-   \ClassError{seuthesix}{invalid degree type option.}%
-   {Check your class option of degree type to be one of the following:%
-   masters, engineering, phd.}
-   \fi
-   \fi
-   \fi
-\AddToShipoutPictureBG*{\setlength{\unitlength}{1cm}\put(17,27){%
-\parbox{\paperwidth}{\includegraphics[width=2cm]{figures/seu-color-logo.png}}}}%
-
-   \vspace*{8cm}
-
-   \begin{center}
-     \linespread{1.25}
-     \yihao\heiti\@title\\
-     \yihao\heiti\@subtitle
-   \end{center}
-
-   \begin{center}
-    \setlength{\tabcolsep}{0pt}
-    \renewcommand{\arraystretch}{2.0}
-     \begin{tabular}{cr}
-       \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@author}
-           \makebox[2cm][r]{}}} \\
-       \makebox[3.5cm][s]{\xiaoerhao\songti\advisorpre: } &
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@advisorname}
-           \makebox[2cm][r]{\xiaoerhao\heiti\@advisortitle}}}
-       \\
-       &
-       \ifcoadvisor
-       \underline{\makebox[6cm][s]{
-           \hspace*{1cm}
-           \makebox[2.5cm][c]{\xiaoerhao\heiti\@coadvisorname}
-           \makebox[2cm][r]{\xiaoerhao\heiti\@coadvisortitle}}}
-       \else
-       \fi \\
-     \end{tabular}
-   \end{center}
-
-   \begin{center}
-   \setlength{\tabcolsep}{10pt}
-    \renewcommand{\arraystretch}{2.0}
-     \begin{tabular}{ll}
-       \CoverBottomOption{\appdegreepre}{\@degreetype} &
-       \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-       \CoverBottomOption{\majorpre}{\@major} &
-       \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-       \CoverBottomOption{\submajorpre}{\@submajor} &
-       \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
-       \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
-       \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
-       & \CoverBottomOption{\makebox[2.55cm]{}}{\@reviewerB}
-     \end{tabular}
-   \end{center}
-
-   \vfill
-   \setcounter{page}{1}
-{\songti\sihao\centerline{\today} \par}
-
- \clearpage\thispagestyle{empty}\cleardoublepage%
- \thispagestyle{empty}
- \begin{center}
-   \xiaochuhao
-
-   \includegraphics[height=0.63in]{figures/seu-text-logo}
-
-   \ifmasters
-   \includegraphics{figures/master-hwzs}
-  \else
-  \includegraphics{figures/doctor-hwzs}
-  \fi
-
-   \vspace{31.5pt}
-   \yihao\heiti\@title\@thesisthanks\\
-   \yihao\heiti\@subtitle
-  \vspace{42pt}
-
-  {
-  \setlength{\tabcolsep}{0pt}
-   \begin{tabular}{cc}
-     \makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称: } &
-     \underline{\makebox[6cm][s]{
-         \xiaoerhao\songti\textbf{\@major} }} \\
-         \\
-       \makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre:  } &
-       \underline{\makebox[6cm][s]{
-          \xiaoerhao\songti\textbf{\@author} }} \\
-           \\
-       \makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre:  } &
-       \underline{\makebox[6cm][s]{
-          \xiaoerhao\songti\textbf{\@advisorname\quad\@advisortitle} }}
-\\
-       &
-       \ifcoadvisor
-       \underline{\makebox[6cm][s]{
-           \xiaoerhao\songti\textbf{\@coadvisorname\quad\@coadvisortitle} }}
-       \else
-       \fi
-     \end{tabular}
-     }
- \end{center}
-}
+%% ----------------------------- %%
+%%    Generate English cover     %%
+%% ----------------------------- %%
 
 \newcommand{\makeenglishcover}{%
 \clearpage\thispagestyle{empty}\cleardoublepage\thispagestyle{empty}
