@@ -1,48 +1,28 @@
-
-%%  This is file `seuthesix.cls',
+%%  This is file `seumasterthesis.cls',
 %%  This file provides a LaTeX document class for typesetting thesis of Southeast University, Nanjing, China.
 %%  Copyright (c) 2007--2012 Xu Yuan, email: xuyuan.cn@gmail.com
 %%  Copyright (c) 2016 James Fan, email: zhimengfan1990@163.com
+%%  Copyright (c) 2019 Rui Song, email: wurahara@163.com
 %%  License: GNU General Public License, version 3
-%% This file is part of ``seuthesix'' package.
-%% ``seuthesix'' is free software: you can redistribute it and/or modify
-%% it under the terms of the GNU General Public License as published by
-%% the Free Software Foundation, either version 3 of the License, or
-%% (at your option) any later version.
-%% ``seuthesix'' is distributed in the hope that it will be useful,
-%% but WITHOUT ANY WARRANTY; without even the implied warranty of
-%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-%% GNU General Public License for more details.
-%% 
-%% You should have received a copy of the GNU General Public License
-%% along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seuthesix}[2016/03/20 1.0.1 The LaTeX template for academic  degree thesis of Southeast University]
-\typeout{Document Class `seuthesix' 1.0.1 by James Fan (2016/03/20)}
+\ProvidesClass{seumasterthesis}[2019/06/01 2.0.1 The LaTeX template for master degree thesis of Southeast University]
+\typeout{Document Class `seumasterthesis' 2.0.1 by Rui Song (2019/06/01)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifcoadvisor\coadvisorfalse
-\newif\ifengineering\engineeringfalse
-\newif\ifmasters\masterstrue
-\newif\ifphd\phdfalse
 \newif\ifalgorithmlist\algorithmlistfalse
 \newif\iffigurelist\figurelistfalse
 \newif\iftablelist\tablelistfalse
 \newif\ifnomlist\nomlistfalse
 
-\InputIfFileExists{seuthesix.cfg}
-{\typeout{[seuthesix]: Load seuthesix.cfg successfully!}}
-{\typeout{[seuthesix]: Load seuthesix.cfg failed!}}
+\InputIfFileExists{seumasterthesis.cfg}
+{\typeout{[seumasterthesis]: Load seumasterthesis.cfg successfully!}}
+{\typeout{[seumasterthesis]: Load seumasterthesis.cfg failed!}}
 
 \DeclareOption{nocolorlinks}{\nocolorlinkstrue}
 \DeclareOption{algorithmlist}{\algorithmlisttrue}
-\DeclareOption{phd}{\phdtrue\mastersfalse\engineeringfalse\renewcommand\@degreelevel{博士}}
-\DeclareOption{masters}{\masterstrue\engineeringfalse\phdfalse\renewcommand\@degreelevel{硕士}}
-\DeclareOption{engineering}{%
-\engineeringtrue\masterstrue\phdfalse\renewcommand\@degreelevel{工程硕士}}
-
 \DeclareOption{figurelist}{\figurelisttrue}
 \DeclareOption{tablelist}{\tablelisttrue}
 \DeclareOption{nomlist}{\nomlisttrue}
@@ -51,6 +31,7 @@
 \ProcessOptions
 \LoadClass[twoside,a4paper,zihao=-4,UTF8,openright]{ctexrep}
 \RequirePackage[titles]{tocloft}
+
 \renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
 \newcommand{\chuhao}{\fontsize{42bp}{46bp}\selectfont}
 \newcommand{\xiaochuhao}{\fontsize{36bp}{40bp}\selectfont}
@@ -67,20 +48,20 @@
 \newcommand{\xiaoliuhao}{\fontsize{6.5bp}{7.5bp}\selectfont}
 \newcommand{\qihao}{\fontsize{5.5bp}{6.5bp}\selectfont}
 
-\ctexset{%
-chapter/format=\centering,
-chapter/nameformat=\large\heiti,
-chapter/numberformat=\large\heiti,
-chapter/titleformat=\large\heiti,
-chapter/beforeskip=0pt,
-section/format=\raggedright,
-section/nameformat={\large\bfseries},
-section/numberformat={\large\bfseries},
-section/titleformat={\sihao\bfseries},
-subsection/format=\sihao\mdseries\raggedright,
-subsubsection/format=\sihao\mdseries\raggedright,
-listfigurename={插图目录},
-listtablename={表格目录}
+\ctexset{
+	chapter/format=\centering,
+	chapter/nameformat=\large\heiti,
+	chapter/numberformat=\large\heiti,
+	chapter/titleformat=\large\heiti,
+	chapter/beforeskip=0pt,
+	section/format=\raggedright,
+	section/nameformat={\large\bfseries},
+	section/numberformat={\large\bfseries},
+	section/titleformat={\sihao\bfseries},
+	subsection/format=\sihao\mdseries\raggedright,
+	subsubsection/format=\sihao\mdseries\raggedright,
+	listfigurename={插图目录},
+	listtablename={表格目录}
 }
 
 \RequirePackage[font=small]{caption}
@@ -115,20 +96,23 @@ listtablename={表格目录}
 \renewcommand{\listalgorithmname}{算法目录}
 \RequirePackage[super,square]{natbib}
 \newcommand\citen[1]{[\!\!\citenum{#1}]}
+
 \RequirePackage{hyperref}
 \ifnocolorlinks
-\hypersetup{colorlinks=false}
+	\hypersetup{colorlinks=false}
 \else
-\hypersetup{colorlinks=true}
+	\hypersetup{colorlinks=true}
 \fi
+
 \hypersetup{
- linkcolor=blue,
- anchorcolor=black,
- citecolor=red,
- filecolor=magenta,
- menucolor=red,
- urlcolor=magenta
+	linkcolor=blue,
+	anchorcolor=black,
+	citecolor=red,
+	filecolor=magenta,
+	menucolor=red,
+	urlcolor=magenta
 }
+
 \AtEndDocument{\backcover}
 \newcommand{\backcover} {
 	\clearpage
@@ -136,12 +120,14 @@ listtablename={表格目录}
 	\clearpage
 	\thispagestyle{empty}
 	\begin{picture}(0,0)
-		\put(-1,-22){ %
-		\includegraphics[width=\textwidth]{figures/back-cover.png}}
+		\put(-1,-22) {
+			\includegraphics[width=\textwidth]{figures/back-cover.png}
+		}
 	\end{picture}
 }
 
 \RequirePackage[top=1.2in,bottom=1in,left=2cm,right=2cm,a4paper]{geometry}
+
 \RequirePackage{fancyhdr}
 \fancypagestyle{seustyle} {
 	\fancyhf{}
@@ -311,41 +297,13 @@ listtablename={表格目录}
 	\end{picture}
 	
 	%% Thesis name
-	
-	\ifengineering
-	
-		\begin{picture}(0,0)
-			\put(23.2,-8){
-				\includegraphics[scale=0.65]{figures/engineering.png}
-			}
-		\end{picture}
-	
-	\else \ifmasters
-	
-		\begin{picture}(0,0)
-			\put(24.2,-7.5){
-				\includegraphics[scale=0.32]{figures/master.png}
-			}
-		\end{picture}
-	
-	\else \ifphd
-   
-		\begin{picture}(0,0)
-			\put(24.5,-8){
-				\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
-			}
-		\end{picture}
-	
-	\else
-	
-		\ClassError{seuthesix}{invalid degree type option.}
-		{Check your class option of degree type to be one of the following: %
-		masters, engineering, phd.}
-	
-	\fi
-	\fi
-	\fi
-	
+		
+	\begin{picture}(0,0)
+		\put(24.2,-7.5){
+			\includegraphics[scale=0.32]{figures/master.png}
+		}
+	\end{picture}
+		
 	%% Southeast University badge
 	
 	\begin{picture}(0,0)
@@ -505,21 +463,7 @@ listtablename={表格目录}
 	}
 	
 	%% Thesis name
-	
-	\ifengineering
-	
-	\AddToShipoutPictureBG*{
-		\setlength{\unitlength}{1cm}
-		\put(0,18){
-			\parbox{\paperwidth}{
-				\centering
-				\includegraphics[scale=0.65]{figures/engineering.png}
-			}
-		}
-	}
-	
-	\else \ifmasters
-	
+		
 	\AddToShipoutPictureBG*{
 		\setlength{\unitlength}{1cm}
 		\put(0,17.3){
@@ -529,29 +473,7 @@ listtablename={表格目录}
 			}
 		}
 	}
-	
-   \else \ifphd
-   
-	\AddToShipoutPictureBG*{
-   		\setlength{\unitlength}{1cm}
-		\put(0,18){
-			\parbox{\paperwidth} {
-				\centering
-				\includegraphics[scale=1.1]{figures/doctor-hwzs.pdf}
-			}
-		}
-	}
-	
-	\else
-	
-	\ClassError{seuthesix}{invalid degree type option.}
-   	{Check your class option of degree type to be one of the following:
-   	masters, engineering, phd.}
-   	
-   	\fi
-   	\fi
-   	\fi
-   	
+	   	
    	%% Southeast University badge
    	
 	\AddToShipoutPictureBG*{
@@ -650,13 +572,8 @@ listtablename={表格目录}
 	
 	\begin{center}
 		\xiaochuhao
-		\includegraphics[height=0.63in]{figures/seu-text-logo}
-		
-		\ifmasters
+		\includegraphics[height=0.63in]{figures/seu-text-logo}\\
 		\includegraphics[scale=0.35]{figures/master.png}
-		\else
-		\includegraphics{figures/doctor-hwzs}
-		\fi
 		
 		%% Thesis title
 		
@@ -671,19 +588,19 @@ listtablename={表格目录}
 			\setlength{\tabcolsep}{0pt}
 			\renewcommand{\arraystretch}{1.5}
 			\begin{tabular}{cc}
-				\makebox[3.5cm][s]{\xiaoerhao\heiti{}专~~业~~名~~称: } &
+				\makebox[3.5cm][s]{\xiaoerhao\heiti\mainmajorpre:  } &
 				\underline{
 					\makebox[6cm][s] {
 						\xiaoerhao\songti\textbf{\@major} 
 					}
 				} \\
-				\makebox[3.5cm][s]{ \xiaoerhao\heiti\authorpre:  } &
+				\makebox[3.5cm][s]{\xiaoerhao\heiti\authorpre:  } &
 				\underline {
 					\makebox[6cm][s] {
 						\xiaoerhao\songti\textbf{\@author}
 					}
 				} \\
-				\makebox[3.5cm][s]{ \xiaoerhao\heiti\advisorpre:  } &
+				\makebox[3.5cm][s]{\xiaoerhao\heiti\advisorpre:  } &
 				\underline {
 					\makebox[6cm][s] {
 						\xiaoerhao\songti\textbf{\@advisorname}
@@ -735,13 +652,7 @@ listtablename={表格目录}
 			\fontsize{16pt}{24pt}
 			\selectfont
 			{
-				A
-				\ifmasters
-				Thesis
-				\else
-				Dissertation
-				\fi
-				submitted to
+				A Thesis submitted to
 			}\\
 			{\universitynameeng}\\
 			{For the Academic Degree of \@degreetypeen}\\
@@ -775,122 +686,147 @@ listtablename={表格目录}
 }
 
 %% ----------------------------- %%
-%%         Make cover            %%
+%%           Make cover          %%
 %% ----------------------------- %%
 
-\newcommand\makecover{
+\newcommand\makecover {
 	\makechinesecover
 	\makeenglishcover
 	\seudeclare
 }
 
-\renewenvironment{abstract}[1]
-{
-\pagenumbering{Roman}
-\clearpage\thispagestyle{empty}\cleardoublepage\thispagestyle{plain}
- \newcommand{\@keywords}{#1}
- \hypersetup{pdfkeywords={\@keywords}}
- \phantomsection
- \addcontentsline{toc}{chapter}{\@abstracttitle}
-   \chapter*{\@abstracttitle}
-   \setcounter{page}{1}
-}
-{
- \par
- \begin{description}
- \item[关键词：] \@keywords
- \end{description}
-}
+%% ----------------------------- %%
+%%       Chinese Abstract        %%
+%% ----------------------------- %%
 
-\newenvironment{englishabstract}[1]
-{
-\cleardoublepage\thispagestyle{plain}
- \newcommand{\@keywords}{#1}
- \phantomsection
- \addcontentsline{toc}{chapter}{Abstract}
-\ctexset{%
-chapter/nameformat=\large\bfseries,
-chapter/titleformat=\large\bfseries
-}
-  \chapter*{Abstract}
-   \ctexset{%
-chapter/nameformat=\large\heiti,
-chapter/titleformat=\large\heiti
-}
+\renewenvironment{abstract}[1] {
+	\pagenumbering{Roman}
+	\clearpage
+	\thispagestyle{empty}
+	\cleardoublepage
+	\thispagestyle{plain}
+	\newcommand{\@keywords}{#1}
+	\hypersetup{pdfkeywords={\@keywords}}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\@abstracttitle}
+	\chapter*{\@abstracttitle}
+	\setcounter{page}{1}
 }
 {
- \par
- \begin{description}
- \item[Keywords:] \@keywords
- \end{description}
+	\par
+	\begin{description}
+		\item[关键词：] \@keywords
+	\end{description}
 }
 
-\newcommand\listofothers{%
-\iffigurelist
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
-\fi
+%% ----------------------------- %%
+%%       English Abstract        %%
+%% ----------------------------- %%
 
-\iftablelist
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
-\fi
+\newenvironment{englishabstract}[1] {
+	\cleardoublepage\thispagestyle{plain}
+	\newcommand{\@keywords}{#1}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Abstract}
+	\ctexset{
+		chapter/nameformat=\large\bfseries,
+		chapter/titleformat=\large\bfseries
+	}
+	\chapter*{Abstract}
+	\ctexset{
+		chapter/nameformat=\large\heiti,
+		chapter/titleformat=\large\heiti
+	}
+}
+{
+	\par
+	\begin{description}
+	\item[Keywords:] \@keywords
+	\end{description}
+}
 
-\ifalgorithmlist
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\listalgorithmname}
-\listofalgorithms
-\fi
+%% ----------------------------- %%
+%%         Summary list          %%
+%% ----------------------------- %%
 
-\ifnomlist
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\nomname}
-\pagestyle{nom}
-\printnomenclature[1in]
-\fi
+\newcommand\listofothers {
+
+	%% figure list
+	
+	\iffigurelist
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\listfigurename}
+		\listoffigures
+	\fi
+	
+	%% table list
+	
+	\iftablelist
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\listtablename}
+		\listoftables
+	\fi
+	
+	%% algorithm list
+	
+	\ifalgorithmlist
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\listalgorithmname}
+		\listofalgorithms
+	\fi
+	
+	%% terminology list
+	
+	\ifnomlist
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\nomname}
+		\pagestyle{nom}
+		\printnomenclature[1in]
+	\fi
 
 }
 
-\newcommand{\mainmatter}{%
-\cleardoublepage
-\pagenumbering{arabic}
-\pagestyle{seustyle}
+\newcommand{\mainmatter} {
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\pagestyle{seustyle}
 }
 
-\newcommand{\acknowledgement}{%
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{致 谢}
-\chapter*{致 谢}
+%% ----------------------------- %%
+%%        Acknowledgement        %%
+%% ----------------------------- %%
+
+\newcommand{\acknowledgement} {
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{致 谢}
+	\chapter*{致 谢}
 }
 
-\newcommand{\thesisbib}[1]{%
-\bibliographystyle{seuthesix}
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\bibname}
-\bibliography{#1}
+%% ----------------------------- %%
+%%         Bibliography          %%
+%% ----------------------------- %%
+
+\newcommand{\thesisbib}[1] {
+	\bibliographystyle{seuthesix}
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\bibname}
+	\bibliography{#1}
 }
 
-\newcommand{\resume}[1]{%
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{#1}
-\chapter*{#1}
-}
+%% ----------------------------- %%
+%%            Resume             %%
+%% ----------------------------- %%
 
-\newcommand{\seuthesix}{%
- \makebox{S\hspace{-0.3ex}\raisebox{-0.5ex}{E}\hspace{-0.3ex}U\hspace{0.1em}%
- \textsc{Thesix}}
-}
-\newcommand{\seuthesis}{%
- \makebox{S\hspace{-0.3ex}\raisebox{-0.5ex}{E}\hspace{-0.3ex}U\hspace{0.1em}%
- \textsc{Thesis}}
+\newcommand{\resume}[1] {
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{#1}
+	\chapter*{#1}
 }
 \endinput

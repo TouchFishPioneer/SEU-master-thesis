@@ -1,8 +1,8 @@
-xelatex sample_masters
-bibtex sample_masters  
-makeindex sample_masters.nlo -s nomencl.ist -o sample_masters.nls 
-xelatex sample_masters  
-xelatex sample_masters 
+xelatex main
+bibtex main  
+makeindex main.nlo -s nomencl.ist -o main.nls 
+xelatex main  
+xelatex main 
 rm *.aux
 rm *.bak
 rm *.log
