@@ -1,0 +1,12 @@
+\begin{abstract}
+	{Appwrapping，动态策略，移动安全}
+	
+	Android提供了一个具有权限控制的安全系统，但是有许多漏洞具有过多的权限和大量与权限相关的API。为了解决这些漏洞，已经对可能危及用户隐私风险的API进行了权限控制研究。然而，不可能向不安全的应用程序添加新的安全功能，并且存在在应用程序的进程中发生开销的缺点，因为要求用户实时许可并且减少用户的便利性。在本文中，我们提出了一个AppWrapper工具包。该工具包可以使用appwrapping技术向用户/管理员的不安全应用程序的所需位置（活动中的方法级别）添加安全功能。而且，使用动态策略管理，可以轻松应用安全策略，而无需再次添加安全功能。此外，通过提供考虑用户便利性的实时应用程序日志功能，可以根据不安全应用程序的进度流程确认需要安全功能的位置，并通过设置创建策略文件政策。除了内置安全性和Android应用程序的应用程序外，商业应用程序的实验已经显示出100％的成功率。平均而言，通过建议的框架添加安全功能花了1.86秒，文件大小增加了大约2.11％，表明随着最小文件大小的增加可以在短时间内添加安全功能。
+	
+\end{abstract}
+
+\begin{englishabstract}
+	{App Wrapping, Dynamic Policy, Mobile Security }
+	
+	Android provides a security system with permission control, but there are a number of vulnerabilities that have excessive permission rights and a large number of per- permission related APIs. To address these vulnerabilities, permission control studies have been conducted on APIs that are at risk of compromising user privacy. However, it is impossible to add a new security function to an insecure application, and there is a disadvantage that an overhead occurs in the progress of the app because the user is required to permit permission in real time and the users’ convenience is decreased. In this paper, we propose an AppWrapper toolkit. The toolkit can add security functions to the user/administrator’s desired locations (method level in activities) of an insecure app using the appwrapping technique. And, using dynamic policy management, it is easy to apply secure policies without adding security functions again. In addition, by providing a real-time app log function that considers the convenience of users, it is possible to confirm the location where the security function is required according to the progress flow of the insecure app, and to create a policy file by setting the policy. Experiments on commercial apps have shown 100\% success rate, except for apps with built-in security and Android apps. On the average, it took 1.86 seconds to add the security function through the proposed framework, and the file size increased by about 2.11\%, indicating that the security function can be added in a short time with the increase of the minimum file size.	
+\end{englishabstract}

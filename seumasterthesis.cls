@@ -345,8 +345,8 @@
 	\begin{minipage}{16cm}
 		\begin{center}
 			\linespread{1.25}
-			\yihao\heiti\@title\\
-			\yihao\heiti\@subtitle
+			\erhao\heiti\@title\\
+			\erhao\heiti\@subtitle
 		\end{center}
 	\end{minipage}
 	
@@ -490,8 +490,8 @@
 	\vspace*{10cm}
 	\begin{center}
 		\linespread{1.25}
-		\yihao\heiti\@title\\
-		\yihao\heiti\@subtitle
+		\erhao\heiti\@title\\
+		\erhao\heiti\@subtitle
 	\end{center}
 	
 	%% Thesis author and advisor
@@ -578,8 +578,8 @@
 		%% Thesis title
 		
 		\vspace{40pt}
-		\yihao\heiti\@title\@thesisthanks\\
-		\yihao\heiti\@subtitle
+		\erhao\heiti\@title\@thesisthanks\\
+		\erhao\heiti\@subtitle
 		
 		%% Author and advisor
 		
@@ -812,7 +812,7 @@
 %% ----------------------------- %%
 
 \newcommand{\thesisbib}[1] {
-	\bibliographystyle{seuthesix}
+	\bibliographystyle{seumasterthesis}
 	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{chapter}{\bibname}
