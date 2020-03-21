@@ -244,3 +244,5 @@ TSWLatexianTemp*
 # Mac OS 
 .DS_Store
 *.pages
+
+main.pdf

@@ -1,0 +1,79 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}[scale=0.57]
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+xmin=0.5,
+xmax=10.5,
+xtick={0,1,2,3,4,5,6,7,8,9,10},
+xticklabels={{},{2014.12},{2015.06},{2015.12},{2016.06},{2016.12},{2017.06},{2017.12},{2018.06},{2018.12},{2019.06}},
+xticklabel style={rotate=30},
+ymajorgrids=true,
+ymin=85,
+ymax=100,
+ylabel style={font=\color{white!15!black}},
+ylabel={手机网民比例/\%},
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=red!60, line width=1.2pt, mark size=1.2pt, mark=*, mark options={solid, red!60}]
+  table[row sep=crcr]{%
+1	85.8\\
+2	88.9\\
+3	90.1\\
+4	92.5\\
+5	95.1\\
+6	96.3\\
+7	97.5\\
+8	98.3\\
+9	98.6\\
+10	99.1\\
+};
+
+\node[right, align=left]
+at (axis cs:0.54,86.525) {85.80};
+\node[right, align=left]
+at (axis cs:1.356,89.522) {88.90};
+\node[right, align=left]
+at (axis cs:2.232,90.685) {90.10};
+\node[right, align=left]
+at (axis cs:3.156,93.131) {92.50};
+\node[right, align=left]
+at (axis cs:4.219,95.6) {95.10};
+\node[right, align=left]
+at (axis cs:5.219,96.844) {96.30};
+\node[right, align=left]
+at (axis cs:6.181,98) {97.50};
+\node[right, align=left]
+at (axis cs:7.447,98.822) {98.30};
+\node[right, align=left]
+at (axis cs:8.511,99.231) {98.60};
+\node[right, align=left]
+at (axis cs:9.450,99.591) {99.10};
+\end{axis}
+
+\begin{axis}[%
+width=5.833in,
+height=4.375in,
+at={(0in,0in)},
+scale only axis,
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+axis line style={draw=none},
+ticks=none,
+axis x line*=bottom,
+axis y line*=left,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\end{axis}
+\end{tikzpicture}% 

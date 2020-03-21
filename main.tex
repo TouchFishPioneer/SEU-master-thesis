@@ -1,54 +1,93 @@
-\documentclass[algorithmlist,figurelist,tablelist,nomlist,masters]{seumasterthesis}
-
-
+\documentclass[algorithmlist,figurelist,tablelist,nomlist]{seumasterthesis}
 
 \begin{document}
 
-	\categorynumber{TP393}
-	\UDC{004.9}
-	\secretlevel{公开}
-	\studentid{170815}
-	
-	\title
-	{基于智能手机惯性传感器的用户隐私安全研究}{}
-	{Research on user privacy security based on smartphone inertial sensors}{}
-	
-	\author{宋睿}{SONG Rui}
-	\advisor{宋宇波}{SONG Yu-bo}{A. Prof.}
-	%\coadvisor{楚留香}{副教授}{Perfume Tsu}{Associate Prof.}
-	
-	\degreetype{工学硕士}{Master of Engineering}
-	\major{网络空间安全}
-	\submajor{}
-	\defenddate{\today}
-	\authorizedate{\today}
-	\committeechair{}
-	\reviewer{}{}
-	
-	\department{东南大学网络空间安全学院}{School of Cybersecurity}
-	%\seuthesisthanks{本课题的研究获郭靖-黄蓉降龙基金、杨过-小龙女黯然销魂基金以及郭襄的倚天基金资助}
+%% ----------------------------------------------------------------------------
+%%                                 Meta Data
+%% ----------------------------------------------------------------------------
+\categorynumber{TP15}           % Chinese Library Classification
+\UDC{001.9}                     % Universal Decimal Classification
+\secretlevel{公开}                % Secret Level
+\studentid{170001}              % Student Number
 
-	\makebigcover
-	\makecover
-	
-	\input{chapters/abstract}
-	
-	\setnomname{术语与符号约定}
-	\tableofcontents
-	\listofothers
+%% ----------------------------------------------------------------------------
+%%                           Thesis Title and Spine
+%% ----------------------------------------------------------------------------
+\title
+    {东南大学 \LaTeX 论文模板使用手册}                                         % Thesis Title
+    {如何优雅地撰写硕士研究生毕业论文}                                          % Thesis Subtitle
+    {Southeast University \LaTeX Thesis Template User Manual}    % Thesis English Title
+    {How to Write a Master Thesis in an Elegant Way}            % Thesis English Subtitle
 
-	\mainmatter
+\spine
+    {东南大学 \rotatebox{270}{LaTeX} 论文模板使用手册}                      % Spine Title
+    {}                                                          % Spine Subtitle
 
-	\input{chapters/chapter1}
-	\input{chapters/chapter2}
-	\input{chapters/chapter3}
-	\input{chapters/chapter4}
-%	\input{chapters/chapter5}
-	\input{chapters/chapter6}
-	\input{chapters/acknowledgement}
+%% ----------------------------------------------------------------------------
+%%                             Author and Advidor
+%% ----------------------------------------------------------------------------
+\author
+    {张三}                        % Author Name in Chinese
+    {ZHANG San}                 % Author Name in English
 
-	\thesisbib{seumasterthesis}
+\advisor
+    {张广军}                       % Advisor Name (Chinese)
+    {ZHANG Guang-Jun}           % Advisor Name (English)
+    {Prof.}                     % Advisor Title (English)
+
+\coadvisor
+    {程光}                        % Co-advisor Name (Chinese)
+    {CHENG Guang}               % Co-advisor Name (English)
+    {Prof.}                     % Co-advisor Title (English)
+
+%% ----------------------------------------------------------------------------
+%%                              Thesis Defence
+%% ----------------------------------------------------------------------------
+\degreetype                     % Degree Type
+    {工学硕士}
+    {Master of Engineering}
+\major{网络空间安全}                  % First-level Discipline Name
+\submajor{}                     % Second-level Discipline Name
+\defenddate{\today}             % Defence Date
+\authorizedate{\today}          % Degree Award Date
+\committeechair{}               % Chairman of Defence Committee
+\reviewer{}{}                   % Thesis Reviewer(s)
+\department                     % Faculty or Department
+    {网络空间安全学院}
+    {School of Cyberspace Security}
+\seuthesisthanks                % Short Acknowledgement
+    {本文的部分工作受国家自然基金 No. wdnm6666 的支持与帮助，在此表示感谢。}
+
+%% ----------------------------------------------------------------------------
+%%                          Paper Cover Generation
+%% ----------------------------------------------------------------------------
+\makebigcover
+\makecover
 	
-%	\input{chapters/appendix}
-	\input{chapters/resume}
+%% ----------------------------------------------------------------------------
+%%                          Abstract and Contents
+%% ----------------------------------------------------------------------------
+\input{chapters/abstract}
+\tableofcontents
+\listofothers
+
+%% ----------------------------------------------------------------------------
+%%                                Main Body
+%% ----------------------------------------------------------------------------
+\mainmatter
+%\input{chapters/chapter1}
+%\input{chapters/chapter2}
+%\input{chapters/chapter3}
+%\input{chapters/chapter4}
+%\input{chapters/chapter5}
+%\input{chapters/chapter6}
+
+%% ----------------------------------------------------------------------------
+%%            Acknowledgement, Appendix, Bibliography and Resume
+%% ----------------------------------------------------------------------------
+%\input{chapters/acknowledgement}
+%\input{chapters/appendix}
+%\thesisbib{seumasterthesis}
+%\input{chapters/resume}
+
 \end{document}
