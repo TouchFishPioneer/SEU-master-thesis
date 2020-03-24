@@ -47,8 +47,8 @@
 \setmainfont[Mapping=tex-text]{Times New Roman}
 \renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
 \newcommand{\cmufont}{\fontspec{CMU Serif}}
-\newcommand{\codefont}{\fontspec{Consolas}}                 %% Microsoft Windows
-%\newcommand{\codefont}{\fontspec{Ubuntu Mono}}             %% Ubuntu GNU/Linux
+%\newcommand{\codefont}{\fontspec{Consolas}}                 %% Microsoft Windows
+\newcommand{\codefont}{\fontspec{Ubuntu Mono}}             %% Ubuntu GNU/Linux
 
 %% Font size
 \newcommand{\chuhao}{\fontsize{42bp}{46bp}\selectfont}
@@ -162,31 +162,6 @@
     keywordstyle= \color{blue},
     commentstyle=\color{gray},
     frame=none,
-}
-\lstdefinelanguage{XML}
-{
-    morestring=[b]",
-    morestring=[s]{>}{<},
-    morecomment=[s]{<?}{?>},
-    stringstyle=\color{black},
-    identifierstyle=\color{blue},
-    keywordstyle=\color{cyan},
-    morekeywords={xmlns,version,type}
-}
-\lstdefinelanguage{smali}{
-    keywordstyle=\color{blue},
-    morekeywords={
-        invoke,virtual,move,result,object,
-        add,sub,mul,int,return,iput,iget,sput,sget,
-        const,string,local,new,instance,static
-    },
-    morecomment=[l]{\#\#},
-}
-\lstdefinelanguage{log}{
-    keywordstyle=\color{blue},
-    morekeywords={
-        INFO
-    }
 }
 
 %% ----------------------------------------------------------------------------
