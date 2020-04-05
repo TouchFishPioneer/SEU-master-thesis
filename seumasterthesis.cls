@@ -2,7 +2,7 @@
 %% ----------------------------------------------------------------------------
 %%  This file provides a LaTeX document class for typesetting thesis of
 %%  Southeast University, Nanjing, China.
-%%  Version: 2019/06/01 v3.1.1
+%%  Version: 2020/04/05 v3.2.5
 %% ----------------------------------------------------------------------------
 %%  Copyright (C) 2007-2012 Yuan Xu, email: xuyuan.cn@gmail.com
 %%  Copyright (C) 2016 James Fan, email: zhimengfan1990@163.com
@@ -11,11 +11,10 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seumasterthesis}[2019/06/01 3.1.1 The LaTeX template for master thesis of Southeast University]
-\typeout{Document Class `seumasterthesis' 3.1.1 by Rui Song (2019/06/01)}
+\ProvidesClass{seumasterthesis}[2020/04/05 3.2.5 The LaTeX template for master thesis of Southeast University]
+\typeout{Document Class `seumasterthesis' 3.2.5 by Rui Song (2020/04/05)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
-\newif\ifcoadvisor\coadvisorfalse
 \newif\ifalgorithmlist\algorithmlistfalse
 \newif\iffigurelist\figurelistfalse
 \newif\iftablelist\tablelistfalse
@@ -176,6 +175,7 @@
 \renewcommand{\toprule}{\specialrule{.1em}{0pt}{.65ex}}
 \renewcommand{\midrule}{\specialrule{.05em}{.4ex}{.65ex}}
 \renewcommand{\bottomrule}{\specialrule{.1em}{.4ex}{0pt}}
+\RequirePackage{subfig}
 \RequirePackage{pgfplots}
 \RequirePackage{grffile}
 \pgfplotsset{compat=newest}
@@ -269,6 +269,7 @@
 	\renewcommand{\@advisornameeng}{#2}
 	\renewcommand{\@advisortitleeng}{#3}
 }
+\newif\ifcoadvisor\coadvisorfalse
 \newcommand{\@coadvisorname}{}
 \newcommand{\@coadvisortitle}{}
 \newcommand{\@coadvisornameeng}{}

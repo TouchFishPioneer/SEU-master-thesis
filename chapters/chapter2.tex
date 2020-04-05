@@ -200,3 +200,23 @@ UDC(Universal Decimal Classification)指通用十进制分类法，是国际上�
 ~
 
 {\codefont department}字段用于指定研究生所属的院系，其中院系的英文名将用于英文封面的生成。学院的正确英文译名请查阅所属学院的官方网站。{\codefont seuthesisthanks}用于在论文的中文内页页脚处对论文所属的项目、赞助的基金课题进行简短的鸣谢。此处不宜书写大段文字，请用简单的一两句话对相关组织或机构表示感谢，对其他个人的感谢请在文尾的致谢部分进行。没有相关赞助的学位论文请直接删去该字段。
+
+\section{模板参数}
+
+你有可能已经注意到了在main.tex文件中引入模板类的命令里包含了若干模板参数：
+
+\begin{tcolorbox}
+\begin{lstlisting}[language=TeX]
+\documentclass[algorithmlist,figurelist,tablelist,nomlist]{seumasterthesis}
+\end{lstlisting}
+\end{tcolorbox}
+
+\noindent 即{\codefont documentclass}命令后的中括号里的几个参数。这些参数用于控制条件编译以及在论文渲染时向模板类提供额外的信息。本节将会介绍本模板提供的模板参数及其具体含义。
+
+\subsection{链接着色}
+
+本模板通过使用hyperref宏包来提供索引和链接跳转功能。相信你已经注意到了，本模板所渲染出的PDF文档中的所有图片、表格、公式、算法和参考文献索引都被着色高亮，且可以通过点击跳转到原引位置。该功能便于读者在阅读电子文档时快速定位相应索引的位置，但是着色高亮的链接在论文付梓时可能会影响到印刷效果。因此，本模板提供了针对链接着色的模板参数。通过在模板参数列表中添加{\codefont nocolorlinks}参数，模板所渲染出的PDF文档中的所有文献索引都将被取消着色，以便论文的正式印刷。
+
+\subsection{图表、算法及术语目录}
+
+根据不同院系和专业的具体情况，硕士研究生学位论文可能并不需要图表、算法或术语目录中的一项或多项。尽管本模板默认会渲染出上述的所有目录，但是我们也提供了相应的模板参数来灵活控制这些目录的渲染。如果你在模板参数列表中显式指定{\codefont figurelist}，代表你希望在论文编译时在章节目录后添加图片目录；类似的，{\codefont tablelist}显式指定了表格目录的需求，{\codefont nomlist}指定了术语表，而{\codefont algorithmlist}指定了算法目录。需要注意的是，你并不需要关注这几个模板参数在参数表中的位置或顺序，具体目录的编译和渲染仍然会依照《东南大学研究生学位论文格式规定》\cite{seugs2015rule}第一条中所规定的顺序进行。

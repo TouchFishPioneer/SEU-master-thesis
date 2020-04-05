@@ -12,7 +12,7 @@
 \begin{lstlisting}[language=TeX]
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.5\linewidth]{figures/content/4_1}
+  \includegraphics[width=.3\linewidth]{figures/content/4_1}
   \caption{插入图片示例}
   \label{fig:4_1}
 \end{figure}
@@ -40,6 +40,9 @@
 \noindent 声明了一个图片浮动体环境。浮动体是 \LaTeX 中的一种特殊容器，用于容纳占据篇幅较大但不方便分页的内容，如图片或表格。方括号中的字母是浮动体位置标识符，用于向 \LaTeX 编译引擎提出位置建议。常见的位置标识符有以下4种：
 
 \begin{itemize}
+  \setlength{\itemsep}{1.5pt}
+  \setlength{\parsep}{1.5pt}
+  \setlength{\parskip}{1.5pt}
   \item {\codefont h}：表示here。\LaTeX 编译引擎在面对用{\codefont h}标识的浮动体时会首先尝试在声明位置插入浮动体；
   \item {\codefont t}：表示top。\LaTeX 编译引擎会尝试在当页顶部安置浮动体；
   \item {\codefont b}：表示bottom。\LaTeX 编译引擎会尝试在当页底部安置浮动体；
@@ -132,6 +135,36 @@
 
 \noindent 包裹了两张图片的声明。和单个图片类似，你也可以指定{\codefont minipage}相对浮动体的位置和大小。编译引擎将根据你{\codefont minipage}的大小调整在一行显示的图片数量。需要注意的是，在两个{\codefont minipage}声明之间请勿空行，因为 \LaTeX 编译引擎会将空行视作换行请求而错误地将你的两张图片上下放置。
 
+\subsection{子图}
+
+和图片并排类似，子图也用于提供在水平方向上组织浮动体的功能。和图片的简单并排不同的是，子图功能一般用于表达同一主题下内容相近或有对比意义的图片或其他浮动体。对于子图功能，你需要引入如下代码：
+
+\begin{tcolorbox}
+\begin{lstlisting}[language=TeX]
+\begin{figure}[htbp]
+  \centering
+  \subfloat[彩色标志]{\includegraphics[width=.38\textwidth]{figures/content/4_4}}
+  \quad\quad
+  \subfloat[单色标志]{\includegraphics[width=.38\textwidth]{figures/content/4_5}}
+  \caption{东南大学校徽的视觉设计}
+  \label{fig:4_4}
+\end{figure}
+\end{lstlisting}
+\end{tcolorbox}
+
+\noindent 编译后呈现如下效果：
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[彩色标志]{\includegraphics[width=.38\textwidth]{figures/content/4_4}}
+  \quad\quad
+  \subfloat[单色标志]{\includegraphics[width=.38\textwidth]{figures/content/4_5}}
+  \caption{东南大学校徽的视觉设计}
+  \label{fig:4_4}
+\end{figure}
+
+\noindent {\codefont subfloat}命令指定了图片的子图单元，你可以在命令后的方括号中指定子图的名称，并在随后的大括号中声明子图的版式和索引路径。
+
 \section{表格}
 
 \subsection{插入表格}
@@ -142,7 +175,7 @@
 \begin{lstlisting}[language=TeX]
 \begin{table}[htbp]
 \centering
-\caption{东南大学院系表}
+\caption{东南大学院系列表}
 \label{tab:4_1}
 \begin{tabular}{cll}
 \toprule
@@ -159,11 +192,11 @@
 \end{lstlisting}
 \end{tcolorbox}
 
-\noindent 编译后的效果如表 \ref{tab:4_1} 所示。想要定义一个表格，首先需要声明浮动体环境：
+\noindent 编译后的效果如表 \ref{tab:4_1} 所示。
 
 \begin{table}[htbp]
 \centering
-\caption{东南大学院系表}
+\caption{东南大学院系列表}
 \label{tab:4_1}
 \begin{tabular}{cll}
 \toprule
@@ -177,6 +210,8 @@
 \bottomrule
 \end{tabular}
 \end{table}
+
+\noindent 想要定义一个表格，首先需要声明浮动体环境：
 
 \begin{tcolorbox}
 \begin{lstlisting}[language=TeX]
