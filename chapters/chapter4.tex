@@ -255,8 +255,6 @@
 \end{lstlisting}
 \end{tcolorbox}
 
-~
-
 事实上，在 \LaTeX 文本中插入表格确实需要付出很大的精力对表格的内容和样式进行调整，这也是很多初学者诟病 \LaTeX 的原因之一。为了方便你设计表格，我们向你推荐\href{http://www.tablesgenerator.com/}{一个网站}，该网站能够使用图形化界面创建表格，然后自动生成对应的 \LaTeX 代码。你只需要把代码复制到你的文档中，并稍加调整与修正即可。
 
 \section{算法}
@@ -356,7 +354,7 @@
   f(x) = \frac{f(x_0)}{0!} + \frac{f'(x_0)}{1!}(x-x_0) + \dots + \frac{f^{(0)}(x_0)}{n!}(x-x_0)^n + R_n(x)
 \end{equation}
 
-\noindent 公式 \ref{eq:4_1} 展示了单行行间公式的表达方式。有时候你还可能需要展示多行的公式，并且这些公式还要按照某些方式对齐。这时候你需要在{\codefont equation}环境中再嵌套一个{\codefont aligned}环境。在每行需要对齐的部分，你可以使用 \& 符号显式地指明，就像这样：
+\noindent 公式 \ref{eq:4_1} 展示了单行行间公式的表达方式。有时候你还可能需要展示多行的公式，并且这些公式还要按照某些方式对齐。这时候你需要在{\codefont equation}环境中再嵌套一个{\codefont aligned}环境。在每行需要对齐的部分，你可以使用{\codefont \&}符号显式地指明，就像这样：
 
 \begin{tcolorbox}
 \begin{lstlisting}[language=TeX]

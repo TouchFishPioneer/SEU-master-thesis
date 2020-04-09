@@ -4,7 +4,7 @@
 
 ## 简介
 
-本模版基于许元的 [SeuThesis](http://seuthesis.googlecode.com/) 和樊智猛的 [SeuThesix](https://github.com/zhimengfan1990/seuthesix)，并在他们工作的基础上进行了修改以适应东南大学新的学位论文要求。目前本模版只支持学术型硕士研究生，对工程型硕士研究生的支持将在后续完善。
+本模版基于许元的 [SeuThesis](http://seuthesis.googlecode.com/) 和樊智猛的 [SeuThesix](https://github.com/zhimengfan1990/seuthesix)，并在他们工作的基础上进行了修改以适应东南大学新的学位论文要求。本模板支持学术型硕士研究生和专业型硕士研究生学位论文。
 
 本模版中参考文献部分的BST文件来自南京大学的胡海星同学提供的 [GB/T 7714-2015 BibTeX Style](https://github.com/CTeX-org/gbt7714-bibtex-style)，在此对他的工作表示感谢。
 
@@ -29,6 +29,8 @@ XeLaTeX -> BibTeX -> MakeIndex -> XeLaTeX -> XeLaTeX
 - 附件3：中华人民共和国国家质量监督检验检疫总局和中国国家标准化管理委员会印发的《中华人民共和国国家标准 GB/T 7714-2015 信息与文献 参考文献著录规则》，该规则规定了中文论文类文本中参考文献著录所需要遵守的规则。
 
 ## 更新历史
+- __3.3.1__：添加了对专业型硕士研究生学位论文的支持；调整了表格框线的线型和边距。
+
 - __3.2.5__：添加了对模板参数的介绍；添加了对子图的支持。
 
 - __3.1.1__：舍弃了 CLS 文件的一些暴露参数；添加了 Windows 操作系统的编译脚本；撰写文档使用手册，正式开放源代码。
