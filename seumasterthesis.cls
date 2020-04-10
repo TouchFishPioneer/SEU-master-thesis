@@ -453,7 +453,7 @@
     %% Southeast University badge
     \begin{picture}(0,0)
         \put(35,2){
-            \includegraphics[width=2cm]{figures/defined/seu-color-logo.png}
+            \includegraphics[width=2.15cm]{figures/defined/seu-color-logo.png}
         }
     \end{picture}
 
@@ -626,7 +626,7 @@
         \setlength{\unitlength}{1cm}
         \put(17,27) {
             \parbox{\paperwidth} {
-                \includegraphics[width=2cm]{figures/defined/seu-color-logo.png}
+                \includegraphics[width=2.15cm]{figures/defined/seu-color-logo.png}
             }
         }
     }
