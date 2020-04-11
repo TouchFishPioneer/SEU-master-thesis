@@ -89,6 +89,7 @@
     %% Subsubsection
     subsubsection/format=\xiaosihao\bfseries\raggedright,
     %% List of figure and table
+    contentsname={目 \quad 录},
     listfigurename={插图目录},
     listtablename={表格目录}
 }
@@ -840,14 +841,14 @@
     \newcommand{\@keywords}{#1}
     \hypersetup{pdfkeywords={\@keywords}}
     \phantomsection
-    \addcontentsline{toc}{chapter}{\@abstracttitle}
+    \addcontentsline{toc}{chapter}{\@abstracttoc}
     \chapter*{\@abstracttitle}
     \setcounter{page}{1}
 }
 {
     \par
     \begin{description}
-        \item[关键词：] \@keywords
+        \item[\@abtractkeywords] \@keywords
     \end{description}
 }
 
@@ -859,12 +860,12 @@
     \cleardoublepage\thispagestyle{plain}
     \newcommand{\@keywords}{#1}
     \phantomsection
-    \addcontentsline{toc}{chapter}{Abstract}
+    \addcontentsline{toc}{chapter}{\@engabstracttoc}
     \ctexset{
         chapter/nameformat=\large\bfseries,
         chapter/titleformat=\large\bfseries
     }
-    \chapter*{Abstract}
+    \chapter*{\@engabstracttitle}
     \ctexset{
         chapter/nameformat=\large\heiti,
         chapter/titleformat=\large\heiti
@@ -873,7 +874,7 @@
 {
     \par
     \begin{description}
-    \item[Keywords:] \@keywords
+    \item[\@engabtractkeywords] \@keywords
     \end{description}
 }
 
@@ -931,8 +932,8 @@
 \newcommand{\acknowledgement} {
     \cleardoublepage
     \phantomsection
-    \addcontentsline{toc}{chapter}{致~~~~谢}
-    \chapter*{致~~~~谢}
+    \addcontentsline{toc}{chapter}{\@acktoc}
+    \chapter*{\@acktitle}
 }
 
 %% ----------------------------------------------------------------------------
