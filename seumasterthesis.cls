@@ -550,7 +550,7 @@
     %% Date
     \vfill
     \hspace*{20.5cm}
-    {\songti\sihao\centerline{\today} \par}
+    {\songti\sihao\centerline{\todaychn} \par}
 
     \eject
     \pdfpagewidth=210mm
@@ -698,7 +698,7 @@
     %% Date
     \vfill
     \setcounter{page}{1} {
-        \songti\sihao\centerline{\today} \par
+        \songti\sihao\centerline{\todaychn} \par
     }
 
     %% Blanck page
