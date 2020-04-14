@@ -40,6 +40,7 @@
 \RequirePackage[top=1.1in,bottom=1.1in,left=2.5cm,right=2.5cm,a4paper]{geometry}
 \RequirePackage[titles]{tocloft}
 \RequirePackage{fontspec}
+\RequirePackage{datetime}
 
 %% ----------------------------------------------------------------------------
 %%                          Font and Font Size
