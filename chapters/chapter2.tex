@@ -99,17 +99,23 @@ UDC(Universal Decimal Classification)指通用十进制分类法，是国际上�
 
 \begin{figure}[!h]
   \centering
-    \begin{minipage}[t]{0.48\textwidth}
+    \begin{minipage}[t]{0.3\textwidth}
     \centering
     \includegraphics[width=.3\linewidth]{figures/content/2_1}
     \caption{错误的书脊渲染}
     \label{fig:2_1}
     \end{minipage}
-    \begin{minipage}[t]{0.48\textwidth}
+    \begin{minipage}[t]{0.3\textwidth}
     \centering
     \includegraphics[width=.3\linewidth]{figures/content/2_2}
-    \caption{正确的书脊渲染}
+    \caption{西文旋转后的书脊渲染}
     \label{fig:2_2}
+    \end{minipage}
+    \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \includegraphics[width=.3\linewidth]{figures/content/2_3}
+    \caption{提升基线后的书脊渲染}
+    \label{fig:2_3}
     \end{minipage}
 \end{figure}
 
@@ -123,7 +129,17 @@ UDC(Universal Decimal Classification)指通用十进制分类法，是国际上�
 \end{lstlisting}
 \end{tcolorbox}
 
-\noindent 请注意，{\codefont $\backslash$rotatebox\{270\}\{\}}前后应该各留一个空格，否则会导致编译错误。和论文标题类似，没有副标题时上述第2个字段可以留空。这样修正后的书脊渲染如图 \ref{fig:2_2} 所示。再次强调，如果你的论文标题中没有中西文混排，请直接删去{\codefont $\backslash$spine}字段。
+\noindent 请注意，{\codefont $\backslash$rotatebox\{270\}\{\}}前后应该各留一个空格，否则会导致编译错误。和论文标题类似，没有副标题时上述第2个字段可以留空。这样修正后的书脊渲染如图 \ref{fig:2_2} 所示。尽管如此，你仍然能从图 \ref{fig:2_2} 中注意到一些异常。拉丁字母在旋转之后的基线高度比汉字基线高度略低，因此导致书脊中的西文部分看起来总是偏左。解决这一问题，你可以在旋转命令中嵌套基线提升命令，就像这样：
+
+\begin{tcolorbox}
+\begin{lstlisting}[language=TeX]
+\spine
+  {面向种群的 \rotatebox{270}{\raisebox{2pt}{Android}} 安全风险评估和恶意应用检测}
+  {}
+\end{lstlisting}
+\end{tcolorbox}
+
+再次修正后的书脊渲染如图 \ref{fig:2_3} 所示，这时你就得到了完美的中西文混排书脊。再次强调，如果你的论文标题中没有中西文混排，请直接删去{\codefont $\backslash$spine}字段。
 
 \section{作者与导师}
 

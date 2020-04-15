@@ -2,7 +2,7 @@
 %% ----------------------------------------------------------------------------
 %%  This file provides a LaTeX document class for typesetting thesis of
 %%  Southeast University, Nanjing, China.
-%%  Version: 2020/04/09 v3.3.1
+%%  Version: 2020/04/15 v3.3.3
 %% ----------------------------------------------------------------------------
 %%  Copyright (C) 2007-2012 Yuan Xu, email: xuyuan.cn@gmail.com
 %%  Copyright (C) 2016 James Fan, email: zhimengfan1990@163.com
@@ -11,8 +11,8 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seumasterthesis}[2020/04/09 3.3.1 The LaTeX template for master thesis of Southeast University]
-\typeout{Document Class `seumasterthesis' 3.3.1 by Rui Song (2020/04/09)}
+\ProvidesClass{seumasterthesis}[2020/04/15 3.3.3 The LaTeX template for master thesis of Southeast University]
+\typeout{Document Class `seumasterthesis' 3.3.3 by Rui Song (2020/04/15)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifalgorithmlist\algorithmlistfalse
