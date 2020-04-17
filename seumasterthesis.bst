@@ -1320,7 +1320,7 @@ FUNCTION {monograph}
   new.block
   format.publisher output
   format.year "year" output.check
-  format.pages bbl.colon output.after
+  format.pages ". " output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -1339,7 +1339,7 @@ FUNCTION {incollection}
   format.mark "" output.after
   new.block
   format.translators output
-  new.slash
+  new.block
   format.editors output
   new.block
   format.series.vol.num.booktitle "booktitle" output.check
@@ -1348,7 +1348,7 @@ FUNCTION {incollection}
   new.block
   format.publisher output
   format.year "year" output.check
-  format.pages bbl.colon output.after
+  format.pages ". " output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -1430,15 +1430,15 @@ FUNCTION {electronic}
   format.mark "" output.after
   new.block
   format.address.publisher output
-  date empty$
-    { format.date output }
-    'skip$
-  if$
   format.pages bbl.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
+  date empty$
+    { format.date output }
+    'skip$
+  if$
   new.block
   format.note output
   fin.entry

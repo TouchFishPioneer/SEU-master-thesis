@@ -2,7 +2,7 @@
 %% ----------------------------------------------------------------------------
 %%  This file provides a LaTeX document class for typesetting thesis of
 %%  Southeast University, Nanjing, China.
-%%  Version: 2020/04/15 v3.3.3
+%%  Version: 2020/04/16 v3.3.5
 %% ----------------------------------------------------------------------------
 %%  Copyright (C) 2007-2012 Yuan Xu, email: xuyuan.cn@gmail.com
 %%  Copyright (C) 2016 James Fan, email: zhimengfan1990@163.com
@@ -11,8 +11,8 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seumasterthesis}[2020/04/15 3.3.3 The LaTeX template for master thesis of Southeast University]
-\typeout{Document Class `seumasterthesis' 3.3.3 by Rui Song (2020/04/15)}
+\ProvidesClass{seumasterthesis}[2020/04/16 3.3.5 The LaTeX template for master thesis of Southeast University]
+\typeout{Document Class `seumasterthesis' 3.3.5 by Rui Song (2020/04/16)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifalgorithmlist\algorithmlistfalse
@@ -51,8 +51,8 @@
 \setmainfont[Mapping=tex-text]{Times New Roman}
 \renewcommand{\cftchapleader}{\bfseries\cftdotfill{\cftdotsep}}
 \newcommand{\cmufont}{\fontspec{CMU Serif}}
-%\newcommand{\codefont}{\fontspec{Consolas}}                 %% Microsoft Windows
-\newcommand{\codefont}{\fontspec{Ubuntu Mono}}             %% Ubuntu GNU/Linux
+%\newcommand{\codefont}{\fontspec{Consolas}}                %% Microsoft Windows
+\newcommand{\codefont}{\fontspec{Ubuntu Mono}}              %% Ubuntu GNU/Linux
 
 %% Font size
 \newcommand{\chuhao}{\fontsize{42bp}{46bp}\selectfont}
@@ -138,7 +138,12 @@
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 \floatname{algorithm}{算法}
 \renewcommand{\listalgorithmname}{算法目录}
-\RequirePackage[super,square]{natbib}
+
+%% ----------------------------------------------------------------------------
+%%                        Reference and Citation
+%% ----------------------------------------------------------------------------
+
+\RequirePackage[super,square,comma,compress]{natbib}
 \newcommand\citen[1]{[\!\!\citenum{#1}]}
 
 %% ----------------------------------------------------------------------------
