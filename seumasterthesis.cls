@@ -199,7 +199,7 @@
 
 \RequirePackage{hyperref}
 \ifnocolorlinks
-    \hypersetup{colorlinks=false}
+    \hypersetup{colorlinks=false, hidelinks}
 \else
     \hypersetup{colorlinks=true}
 \fi
