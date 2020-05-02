@@ -41,6 +41,7 @@
 \RequirePackage[titles]{tocloft}
 \RequirePackage{fontspec}
 \RequirePackage{datetime}
+\RequirePackage{url}
 
 %% ----------------------------------------------------------------------------
 %%                          Font and Font Size
@@ -114,8 +115,6 @@
 \RequirePackage[mathscr]{eucal}
 \RequirePackage{eufrak}
 \RequirePackage{bm}
-\RequirePackage{graphicx}
-\RequirePackage{url}
 
 %% ----------------------------------------------------------------------------
 %%                        Terminology and Symbols
@@ -170,7 +169,7 @@
     numberstyle= \small,
     keywordstyle= \color{blue},
     commentstyle=\color{gray},
-    frame=none,
+    frame=none
 }
 
 %% ----------------------------------------------------------------------------
@@ -181,17 +180,12 @@
 \renewcommand{\thefigure}{\thechapter{}-\arabic{figure}}
 \captionsetup[table]{labelsep=space}
 \captionsetup[figure]{labelsep=space}
+\RequirePackage{graphicx}
 \RequirePackage{booktabs}
 \renewcommand{\toprule}{\specialrule{.08em}{0pt}{.5ex}}
 \renewcommand{\midrule}{\specialrule{.03em}{.5ex}{.5ex}}
 \renewcommand{\bottomrule}{\specialrule{.08em}{.5ex}{0pt}}
 \RequirePackage{subfig}
-\RequirePackage{pgfplots}
-\RequirePackage{grffile}
-\pgfplotsset{compat=newest}
-\usetikzlibrary{plotmarks}
-\usetikzlibrary{arrows.meta}
-\usepgfplotslibrary{patchplots}
 
 %% ----------------------------------------------------------------------------
 %%                         Reference Hyper-links
