@@ -2,7 +2,7 @@
 %% ----------------------------------------------------------------------------
 %%  This file provides a LaTeX document class for typesetting thesis of
 %%  Southeast University, Nanjing, China.
-%%  Version: 2020/04/16 v3.3.5
+%%  Version: 2020/05/10 v3.4.1
 %% ----------------------------------------------------------------------------
 %%  Copyright (C) 2007-2012 Yuan Xu, email: xuyuan.cn@gmail.com
 %%  Copyright (C) 2016 James Fan, email: zhimengfan1990@163.com
@@ -11,8 +11,8 @@
 
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesClass{seumasterthesis}[2020/04/16 3.3.5 The LaTeX template for master thesis of Southeast University]
-\typeout{Document Class `seumasterthesis' 3.3.5 by Rui Song (2020/04/16)}
+\ProvidesClass{seumasterthesis}[2020/05/10 3.4.1 The LaTeX template for master thesis of Southeast University]
+\typeout{Document Class `seumasterthesis' 3.4.1 by Rui Song (2020/05/10)}
 
 \newif\ifnocolorlinks\nocolorlinksfalse
 \newif\ifalgorithmlist\algorithmlistfalse
@@ -245,7 +245,7 @@
 \RequirePackage{eso-pic}
 
 %% ----------------------------------------------------------------------------
-%%                             Tag Redefining
+%%                            Tag Definition
 %% ----------------------------------------------------------------------------
 
 %% Author
@@ -262,6 +262,12 @@
     \newcommand{\@subtitle}{#2}
     \renewcommand{\@titleeng}{#3}
     \renewcommand{\@subtitleeng}{#4}
+}
+
+%% Engineering Thesis Type
+\newcommand{\@engthesistype}{}
+\newcommand{\engthesistype}[1]{
+    \renewcommand{\@engthesistype}{#1}
 }
 
 %% Name of Advisor and Co-advisor
@@ -483,18 +489,32 @@
     \end{picture}
 
     %% Thesis title
-    \vspace*{6cm}
+    \vspace*{5.7cm}
     \hspace*{21cm}
     \begin{minipage}{16cm}
         \begin{center}
             \linespread{1.25}
             \erhao\heiti\@title\\
-            \erhao\heiti\@subtitle
+            \erhao\heiti\@subtitle\\
+        \end{center}
+    \end{minipage}
+
+    %% Engineering Thesis Type
+    \vspace*{0.6cm}
+    \hspace*{21cm}
+    \begin{minipage}{16cm}
+        \begin{center}
+            \sihao\bfseries
+            \ifengineer
+                (\engthesistypepre\@engthesistype)
+            \else
+                ~~
+            \fi
         \end{center}
     \end{minipage}
 
     %% Thesis author and advisor
-    \vspace*{1.5cm}
+    \vspace*{0.4cm}
     \hspace*{21cm}
     \begin{minipage}{16cm}
         \begin{center}
@@ -535,9 +555,17 @@
             \begin{tabular}{ll}
                 \CoverBottomOption{\appdegreepre}{\@degreetype} &
                 \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-                \CoverBottomOption{\majorpre}{\@major} &
+                \ifengineer
+                    \CoverBottomOption{\engfieldpre}{\@major} &
+                \else
+                    \CoverBottomOption{\majorpre}{\@major} &
+                \fi
                 \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-                \CoverBottomOption{\submajorpre}{\@submajor} &
+                \ifengineer
+                    \CoverBottomOption{\resdirepre}{\@submajor} &
+                \else
+                    \CoverBottomOption{\submajorpre}{\@submajor} &
+                \fi
                 \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
                 \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
                 \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
@@ -633,15 +661,25 @@
     }
 
     %% Thesis title
-    \vspace*{9.5cm}
+    \vspace*{8.9cm}
     \begin{center}
         \linespread{1.25}
         \erhao\heiti\@title\\
         \erhao\heiti\@subtitle
     \end{center}
 
+    %% Engineering Thesis Type
+    \begin{center}
+        \sihao\bfseries
+        \ifengineer
+            (\engthesistypepre\@engthesistype)
+        \else
+            ~~
+        \fi
+    \end{center}
+
     %% Thesis author and advisor
-    \vspace*{0.3cm}
+    \vspace*{0.1cm}
     \begin{center}
         \setlength{\tabcolsep}{0pt}
         \renewcommand{\arraystretch}{1.8}
@@ -684,9 +722,17 @@
         \begin{tabular}{ll}
             \CoverBottomOption{\appdegreepre}{\@degreetype} &
             \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
-            \CoverBottomOption{\majorpre}{\@major} &
+            \ifengineer
+                \CoverBottomOption{\engfieldpre}{\@major} &
+            \else
+                \CoverBottomOption{\majorpre}{\@major} &
+            \fi
             \CoverBottomOption{\defenddatepre}{\@defenddate}\\
-            \CoverBottomOption{\submajorpre}{\@submajor} &
+            \ifengineer
+                \CoverBottomOption{\resdirepre}{\@submajor} &
+            \else
+                \CoverBottomOption{\submajorpre}{\@submajor} &
+            \fi
             \CoverBottomOption{\authorizedatepre}{\@authorizedate}\\
             \CoverBottomOption[4.05cm]{\committeechairpre}{\@committeechair} &
             \CoverBottomOption{\reviewerpre}{\@reviewerA}\\
@@ -788,7 +834,7 @@
             \fontsize{16pt}{24pt}
             \selectfont
             {
-                A Thesis submitted to
+                A Thesis Submitted to
             }\\
             {\universitynameeng}\\
             {For the Academic Degree of \@degreetypeen}\\
@@ -800,7 +846,7 @@
 
             %% Advisor
             {\vspace{0.5in}}
-            {Supervised by:}\\
+            {Supervised by}\\
             {\@advisortitleeng\  \@advisornameeng}\\
             \ifcoadvisor
             {and}\\
