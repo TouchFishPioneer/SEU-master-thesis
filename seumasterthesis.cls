@@ -447,15 +447,13 @@
     \end{picture}
 
     %% Thesis name
-    \ifengineer
-        \begin{picture}(0,0)
+    \begin{picture}(0,0)
+        \ifengineer
             \put(23,-7.5){\includegraphics[scale=0.32]{figures/defined/master-engineer.png}}
-        \end{picture}
-    \else
-        \begin{picture}(0,0)
+        \else
             \put(24.2,-7.5){\includegraphics[scale=0.32]{figures/defined/master.png}}
-        \end{picture}
-    \fi
+        \fi
+    \end{picture}
 
     %% Southeast University badge
     \begin{picture}(0,0)
@@ -475,7 +473,7 @@
     \begin{picture}(0,0)
         \put(18,-8){
             \parbox[c]{\ccwd}{
-                \bfseries
+                \heiti
                 \setlength{\baselineskip}{0pt}
                 \@spinetitle\\
                 \rule{0pt}{\ccwd}\\
@@ -489,7 +487,11 @@
     \end{picture}
 
     %% Thesis title
-    \vspace*{5.7cm}
+    \ifengineer
+        \vspace*{5.7cm}
+    \else
+        \vspace*{6.0cm}
+    \fi
     \hspace*{21cm}
     \begin{minipage}{16cm}
         \begin{center}
@@ -500,21 +502,24 @@
     \end{minipage}
 
     %% Engineering Thesis Type
-    \vspace*{0.6cm}
-    \hspace*{21cm}
-    \begin{minipage}{16cm}
-        \begin{center}
-            \sihao\bfseries
-            \ifengineer
+    \ifengineer
+        \vspace*{0.6cm}
+        \hspace*{21cm}
+        \begin{minipage}{16cm}
+            \begin{center}
+                \sihao\bfseries
                 (\engthesistypepre\@engthesistype)
-            \else
-                ~~
-            \fi
-        \end{center}
-    \end{minipage}
+            \end{center}
+        \end{minipage}
+    \else
+    \fi
 
     %% Thesis author and advisor
-    \vspace*{0.4cm}
+    \ifengineer
+        \vspace*{0.4cm}
+    \else
+        \vspace*{1.5cm}
+    \fi
     \hspace*{21cm}
     \begin{minipage}{16cm}
         \begin{center}
@@ -604,7 +609,7 @@
     \thispagestyle{empty}
     \AddToShipoutPictureFG* {
         \setlength{\unitlength}{1cm}
-        \put(1,26) {
+        \put(1,26.8) {
             \renewcommand{\arraystretch}{1.0}
             \begin{tabular}{l}
                 \CoverTopOption{\schoolcodepre}{\schoolcode} \\
@@ -619,7 +624,7 @@
     %% University title and the picture of grand auditorium
     \AddToShipoutPictureBG*{
         \setlength{\unitlength}{1cm}
-        \put(0,23) {
+        \put(0,23.5) {
             \parbox{\paperwidth} {
                 \centering
                 \includegraphics[width=.9\paperwidth]{figures/defined/front-cover.jpg}
@@ -628,32 +633,24 @@
     }
 
     %% Thesis name
-    \ifengineer
-        \AddToShipoutPictureBG*{
-            \setlength{\unitlength}{1cm}
-            \put(0,18){
-                \parbox{\paperwidth}{
-                    \centering
-                    \includegraphics[scale=0.35]{figures/defined/master-engineer.png}
-                }
+    \AddToShipoutPictureBG*{
+        \setlength{\unitlength}{1cm}
+        \put(0,18.6){
+            \parbox{\paperwidth}{
+                \centering
+                \ifengineer
+                    \includegraphics[scale=0.32]{figures/defined/master-engineer.png}
+                \else
+                    \includegraphics[scale=0.32]{figures/defined/master.png}
+                \fi
             }
         }
-    \else
-        \AddToShipoutPictureBG*{
-            \setlength{\unitlength}{1cm}
-            \put(0,18){
-                \parbox{\paperwidth}{
-                    \centering
-                    \includegraphics[scale=0.35]{figures/defined/master.png}
-                }
-            }
-        }
-    \fi
+    }
 
     %% Southeast University badge
     \AddToShipoutPictureBG*{
         \setlength{\unitlength}{1cm}
-        \put(17,27) {
+        \put(17,27.5) {
             \parbox{\paperwidth} {
                 \includegraphics[width=2.15cm]{figures/defined/seu-color-logo.png}
             }
@@ -661,7 +658,11 @@
     }
 
     %% Thesis title
-    \vspace*{8.9cm}
+    \ifengineer
+        \vspace*{8.3cm}
+    \else
+        \vspace*{8.6cm}
+    \fi
     \begin{center}
         \linespread{1.25}
         \erhao\heiti\@title\\
@@ -669,20 +670,23 @@
     \end{center}
 
     %% Engineering Thesis Type
-    \begin{center}
-        \sihao\bfseries
-        \ifengineer
+    \ifengineer
+        \begin{center}
+            \sihao\bfseries
             (\engthesistypepre\@engthesistype)
-        \else
-            ~~
-        \fi
-    \end{center}
+        \end{center}
+    \else
+    \fi
 
     %% Thesis author and advisor
-    \vspace*{0.1cm}
+    \ifengineer
+        \vspace*{0.1cm}
+    \else
+        \vspace*{0.9cm}
+    \fi
     \begin{center}
         \setlength{\tabcolsep}{0pt}
-        \renewcommand{\arraystretch}{1.8}
+        \renewcommand{\arraystretch}{2.0}
         \begin{tabular}{cr}
             \makebox[3.5cm][s]{\xiaoerhao\songti\authorpre: } &
             \underline{
