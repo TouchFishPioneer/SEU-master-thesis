@@ -52,4 +52,4 @@ XeLaTeX -> BibTeX -> MakeIndex -> XeLaTeX -> XeLaTeX
 
 ## 开源许可证
 
-[GPL - v3 © wurahara](https://github.com/wurahara/SEU-master-thesis/blob/master/LICENSE)
+[GPL-v3 © TouchFishPioneer](https://github.com/TouchFishPioneer/SEU-master-thesis/blob/master/LICENSE)
