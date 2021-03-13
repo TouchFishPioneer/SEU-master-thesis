@@ -213,8 +213,6 @@
 \AtEndDocument{\backcover}
 \newcommand{\backcover} {
     \clearpage
-    \thispagestyle{empty}\cleardoublepage\mbox{ }
-    \clearpage
     \thispagestyle{empty}
     \begin{picture}(0,0)
         \put(-1,-22) {
