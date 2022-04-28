@@ -762,7 +762,11 @@
     \begin{center}
         \xiaochuhao
         \includegraphics[height=0.63in]{figures/defined/seu-text-logo.png}\\
-        \includegraphics[scale=0.35]{figures/defined/master.png}
+        \ifengineer
+            \includegraphics[scale=0.35]{figures/defined/master-engineer.png}
+        \else
+            \includegraphics[scale=0.35]{figures/defined/master.png}
+        \fi
 
         %% Thesis title
         \vspace{40pt}
@@ -839,7 +843,11 @@
                 A Thesis Submitted to
             }\\
             {\universitynameeng}\\
-            {For the Academic Degree of \@degreetypeen}\\
+            \ifengineer
+                {For the Professional Degree of \@degreetypeen}\\
+            \else
+                {For the Academic Degree of \@degreetypeen}\\
+            \fi
 
             %% Author
             {\vspace{0.5in}}
