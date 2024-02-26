@@ -42,6 +42,9 @@
 \RequirePackage{fontspec}
 \RequirePackage{datetime}
 \RequirePackage{url}
+\RequirePackage{tabu}
+\RequirePackage{stackengine}
+\RequirePackage{multirow}
 
 %% ----------------------------------------------------------------------------
 %%                          Font and Font Size
